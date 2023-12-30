@@ -23,7 +23,7 @@ def extract_and_move_files(src_dir, dst_dir):
             os.rmdir(os.path.join(root, name))
 
 # 使用示例
-source_directory = 'C:\\Users\\User\\Downloads\\新增資料夾'  # 替换为你的源路径
+source_directory = "C:\\Users\\User\\Desktop\\tablecloth\\classification - 複製"  # 替换为你的源路径
 destination_directory = '/path/to/destination'  # 替换为你的目标路径
 
 extract_and_move_files(source_directory, source_directory)
