@@ -1,6 +1,6 @@
 
 from keras.datasets import cifar10
-
+# 載入CIFAR-10資料集
 (x_train, y_train), (x_test, y_test) = cifar10.load_data()
 x_train = x_train.astype('float32') / 255
 x_test = x_test.astype('float32') / 255
@@ -8,7 +8,7 @@ x_test = x_test.astype('float32') / 255
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten
 from keras.layers import Conv2D, MaxPooling2D
-
+# 建立模型
 model = Sequential()
 model.add(Conv2D(32, kernel_size=(3, 3), activation='relu', input_shape=(32, 32, 3)))
 model.add(MaxPooling2D(pool_size=(2, 2)))

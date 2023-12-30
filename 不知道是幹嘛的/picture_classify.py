@@ -1,7 +1,7 @@
 import os
 import shutil
 from PIL import Image
-
+# 定義一個函數來獲取圖片的副檔名
 # 定義一個函數來獲取圖片的解析度
 def get_resolution(image_path):
     with Image.open(image_path) as im:
