@@ -1,6 +1,7 @@
+# 定义函数，用于重命名文件夹中的所有文件
 import os
 from collections import defaultdict
-# 定义函数，用于重命名文件夹中的所有文件
+
 def rename_files_in_directory(directory):
     # 用于存储每种扩展名的文件数量
     extension_counts = defaultdict(int)
