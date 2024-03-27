@@ -30,5 +30,5 @@ def rename_files_in_directory(directory):
             print(f"已將 '{filename}' 重命名為 '{new_filename}'")
 
 # 使用範例，請替換為您的目錄路徑
-directory = "/path/to/your/directory"  # 這裡替換為您的目錄路徑
+directory = "C:/Users/樺/GitHub/Image_Classification/foods"  # 這裡替換為您的目錄路徑
 rename_files_in_directory(directory)
