@@ -216,3 +216,4 @@ doc/_build/**
 **/.vscode
 
 config.json
+telegram-bot-api/
