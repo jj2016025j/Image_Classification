@@ -20,7 +20,7 @@ def clear_folder(folder_path):
         print(f'An unexpected error occurred: {e}')
 
 # 定義要清空的資料夾路徑
-folder_path = './test'
+folder_path = "C:/Users/User/GitHub/ImageClassification/test"
 
 # 清空資料夾但不刪除資料夾本身
 clear_folder(folder_path)

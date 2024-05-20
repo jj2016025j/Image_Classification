@@ -7,8 +7,8 @@ from PIL import Image, UnidentifiedImageError
 #依圖片模型分類，僅限StableDiffution
 
 # 定義原始路徑和目標路徑
-source_path = r"C:\Users\User\Desktop\tablecloth\classification"
-target_path = r"C:\Users\User\Desktop\tablecloth\classification"
+source_path = "C:/Users/User/GitHub/ImageClassification/test"
+target_path = "C:/Users/User/GitHub/ImageClassification/test"
 
 # 確認目標路徑是否存在，如果不存在就創建一個
 if not os.path.exists(target_path):

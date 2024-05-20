@@ -1,4 +1,3 @@
-# 檔案重命名
 import os
 from collections import defaultdict
 
@@ -11,7 +10,6 @@ def rename_files_in_directory(directory):
     # 用於儲存每種副檔名的檔案數量
     extension_counts = defaultdict(int)
 
-    # 遍歷目錄中的所有檔案
     for filename in os.listdir(directory):
         filepath = os.path.join(directory, filename)
         if os.path.isfile(filepath):
@@ -25,10 +23,16 @@ def rename_files_in_directory(directory):
             new_filename = f"{file_extension[1:]}_{extension_counts[file_extension]}{file_extension}"
             new_filepath = os.path.join(directory, new_filename)
 
-            # 重命名檔案
+            # 檢查目標檔案是否已存在，並生成唯一的檔名
+            counter = 1
+            while os.path.exists(new_filepath):
+                new_filename = f"{file_extension[1:]}_{extension_counts[file_extension]}_{counter}{file_extension}"
+                new_filepath = os.path.join(directory, new_filename)
+                counter += 1
+
             os.rename(filepath, new_filepath)
             print(f"已將 '{filename}' 重命名為 '{new_filename}'")
 
-# 使用範例，請替換為您的目錄路徑
-directory = "C:/Users/樺/GitHub/Image_Classification/foods"  # 這裡替換為您的目錄路徑
+directory = "C:/Users/User/GitHub/ImageClassification/test"
+
 rename_files_in_directory(directory)

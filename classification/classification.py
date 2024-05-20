@@ -1,49 +1,69 @@
 import os
 import shutil
 
-# 定義源目錄和目標目錄
-source_dir = './test'
-image_dir = './test/images'
-video_dir = './test/videos'
-audio_dir = './test/audios'
-document_dir = './test/documents'
-other_dir = './test/other'
+def create_directories(base_dir, subdirs):
+    """
+    創建目標子目錄
+    Args:
+        base_dir (str): 基本目錄
+        subdirs (list): 子目錄列表
+    """
+    for subdir in subdirs:
+        dir_path = os.path.join(base_dir, subdir)
+        os.makedirs(dir_path, exist_ok=True)
 
-# 確保目標資料夾存在
-os.makedirs(image_dir, exist_ok=True)
-os.makedirs(video_dir, exist_ok=True)
-os.makedirs(audio_dir, exist_ok=True)
-os.makedirs(document_dir, exist_ok=True)
-os.makedirs(other_dir, exist_ok=True)
+def get_target_directory(file_extension, extensions_mapping):
+    """
+    根據文件擴展名獲取目標目錄
+    Args:
+        file_extension (str): 文件擴展名
+        extensions_mapping (dict): 文件擴展名和目標目錄的映射
+    Returns:
+        str: 目標目錄名稱
+    """
+    for category, extensions in extensions_mapping.items():
+        if file_extension in extensions:
+            return category
+    return "other"
 
-# 定義文件類型
-image_extensions = ('.jpg', '.jpeg', '.png', '.gif', '.bmp')
-video_extensions = ('.mp4', '.avi', '.mov', '.mkv')
-audio_extensions = ('.mp3', '.wav', '.flac', '.aac')
-document_extensions = ('.pdf', '.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx', '.txt')
-
-# 遍歷源目錄中的所有文件
-for filename in os.listdir(source_dir):
-    file_path = os.path.join(source_dir, filename)
-    
-    # 如果是文件而不是文件夾
-    if os.path.isfile(file_path):
-        # 獲取文件擴展名
-        file_extension = os.path.splitext(filename)[1].lower()
+def move_files(source_dir, extensions_mapping, base_target_dir):
+    """
+    移動文件到目標目錄
+    Args:
+        source_dir (str): 源目錄
+        extensions_mapping (dict): 文件擴展名和目標目錄的映射
+        base_target_dir (str): 基本目標目錄
+    """
+    for filename in os.listdir(source_dir):
+        file_path = os.path.join(source_dir, filename)
         
-        # 根據文件類型移動文件
-        if file_extension in image_extensions:
-            shutil.move(file_path, os.path.join(image_dir, filename))
-            print(f'Moved {filename} to {image_dir}')
-        elif file_extension in video_extensions:
-            shutil.move(file_path, os.path.join(video_dir, filename))
-            print(f'Moved {filename} to {video_dir}')
-        elif file_extension in audio_extensions:
-            shutil.move(file_path, os.path.join(audio_dir, filename))
-            print(f'Moved {filename} to {audio_dir}')
-        elif file_extension in document_extensions:
-            shutil.move(file_path, os.path.join(document_dir, filename))
-            print(f'Moved {filename} to {document_dir}')
-        else:
-            shutil.move(file_path, os.path.join(other_dir, filename))
-            print(f'File {filename} does not match any category, leaving in source directory.')
+        if os.path.isfile(file_path):
+            file_extension = os.path.splitext(filename)[1].lower()
+            target_subdir = get_target_directory(file_extension, extensions_mapping)
+            target_dir = os.path.join(base_target_dir, target_subdir)
+            shutil.move(file_path, os.path.join(target_dir, filename))
+            print(f'Moved {filename} to {target_dir}')
+
+def classify_files(source_dir, base_target_dir):
+    """
+    主函數，用於分類文件並移動到相應目標目錄
+    Args:
+        source_dir (str): 源目錄
+        base_target_dir (str): 基本目標目錄
+    """
+    subdirs = ['images', 'videos', 'audios', 'documents', 'other']
+    create_directories(base_target_dir, subdirs)
+
+    extensions_mapping = {
+        'images': ('.jpg', '.jpeg', '.png', '.gif', '.bmp'),
+        'videos': ('.mp4', '.avi', '.mov', '.mkv'),
+        'audios': ('.mp3', '.wav', '.flac', '.aac'),
+        'documents': ('.pdf', '.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx', '.txt')
+    }
+
+    move_files(source_dir, extensions_mapping, base_target_dir)
+
+if __name__ == "__main__":
+    source_directory = "C:/Users/User/GitHub/ImageClassification/test"
+    target_directory = "C:/Users/User/GitHub/ImageClassification/test"
+    classify_files(source_directory, target_directory)

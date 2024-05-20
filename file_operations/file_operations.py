@@ -31,7 +31,7 @@ else:
 
 # 定義源文件路徑和目標文件路徑
 source_file = './for_file_test.txt'
-target_dir = './test'
+target_dir = "C:/Users/User/GitHub/ImageClassification/test"
 
 # 確保目標文件夾存在
 os.makedirs(target_dir, exist_ok=True)

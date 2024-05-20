@@ -13,7 +13,7 @@ def delete_folder(folder_path):
         print(f'An unexpected error occurred: {e}')
 
 # 定義要刪除的資料夾路徑
-folder_path = './test'
+folder_path = "C:/Users/User/GitHub/ImageClassification/test"
 
 # 刪除資料夾及其內容
 delete_folder(folder_path)
