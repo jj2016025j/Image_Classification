@@ -17,7 +17,7 @@ def main():
 
     # 文件擴展名和目標目錄的映射
     extensions_mapping = {
-        'images': ('.jpg', '.jpeg', '.png', '.gif', '.bmp', '.jfif'),
+        'images': ('.jpg', '.jpeg', '.png', '.gif', '.bmp', '.jfif', ".JPG"),
         'videos': ('.mp4', '.avi', '.mov', '.mkv', '.mp4v'),
         'audios': ('.mp3', '.wav', '.flac', '.aac'),
         'documents': ('.pdf', '.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx', '.txt')

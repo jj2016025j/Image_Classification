@@ -2,6 +2,10 @@ import os
 from PIL import Image, UnidentifiedImageError
 from utils import FileUtils
 
+# 设置 Image.MAX_IMAGE_PIXELS 以避免 DecompressionBombError
+# Image.MAX_IMAGE_PIXELS = None
+Image.MAX_IMAGE_PIXELS = 9999999999999
+
 class WallpaperClassifier:
     def __init__(self, source_path, target_path, long_edge_threshold, short_edge_threshold, aspect_ratio_threshold):
         self.source_path = source_path
@@ -9,6 +13,12 @@ class WallpaperClassifier:
         self.long_edge_threshold = long_edge_threshold
         self.short_edge_threshold = short_edge_threshold
         self.aspect_ratio_threshold = aspect_ratio_threshold
+        
+    def sanitize_filename(self, filename):
+        """
+        替换文件名中的特殊字符
+        """
+        return "".join(c if c.isalnum() or c in (" ", ".", "_") else "_" for c in filename)
 
     def classify_wallpaper(self, image_path):
         """
@@ -49,18 +59,36 @@ class WallpaperClassifier:
         count = 0
 
         for filename in os.listdir(self.source_path):
-            if filename.endswith((".png", ".jpg", ".jpeg", '.jfif')):
-                image_path = os.path.join(self.source_path, filename)
+            sanitized_filename = self.sanitize_filename(filename)
+            image_path = os.path.join(self.source_path, filename)
+
+            if filename.endswith(".gif"):
+                category = "gif"
+            elif filename.endswith((".png", ".jpg", ".jpeg", ".jfif", ".JPG")):
                 category = self.classify_wallpaper(image_path)
-                
-                # 更新目標目錄
-                category_path = os.path.join(self.target_path, category)
-                FileUtils.create_directory(category_path)
-                
-                # 移動文件到分類後的目標目錄
-                FileUtils.move_file(image_path, category_path, filename)
-                count += 1
             else:
                 print(f"Skipping file {filename}: Invalid image format")
+                continue
+
+            # 更新目標目錄
+            category_path = os.path.join(self.target_path, category)
+            FileUtils.create_directory(category_path)
+            
+            # 移動文件到分類後的目標目錄
+            FileUtils.move_file(image_path, category_path, sanitized_filename)
+            count += 1
 
         print(f"Processed {count} files.")
+
+if __name__ == "__main__":
+    from dotenv import load_dotenv
+    load_dotenv()
+
+    source_path = os.getenv("SOURCE_DIRECTORY")
+    target_path = os.getenv("TARGET_DIRECTORY")
+    long_edge_threshold = int(os.getenv("LONG_EDGE_THRESHOLD"))
+    short_edge_threshold = int(os.getenv("SHORT_EDGE_THRESHOLD"))
+    aspect_ratio_threshold = float(os.getenv("ASPECT_RATIO_THRESHOLD"))
+
+    classifier = WallpaperClassifier(source_path, target_path, long_edge_threshold, short_edge_threshold, aspect_ratio_threshold)
+    classifier.process_images()
