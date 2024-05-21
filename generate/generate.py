@@ -98,7 +98,7 @@ if __name__ == "__main__":
         total_files,
         generate_random_images,
         test_folder, 
-        min_size=(50, 50),
+        min_size=(1000, 1000),
         max_size=(5000, 5000)
         
     )
