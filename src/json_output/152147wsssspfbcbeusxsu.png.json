@@ -1,0 +1,15 @@
+{
+    "format": "PNG",
+    "mode": "RGBA",
+    "size": [
+        600,
+        330
+    ],
+    "info": {
+        "dpi": [
+            96.012,
+            96.012
+        ],
+        "XML:com.adobe.xmp": "<x:xmpmeta xmlns:x='adobe:ns:meta/'>\n        <rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'>\n\n        <rdf:Description rdf:about=''\n        xmlns:dc='http://purl.org/dc/elements/1.1/'>\n        <dc:title>\n        <rdf:Alt>\n        <rdf:li xml:lang='x-default'>\u6df1\u591c.psd - 3</rdf:li>\n        </rdf:Alt>\n        </dc:title>\n        </rdf:Description>\n\n        <rdf:Description rdf:about=''\n        xmlns:Attrib='http://ns.attribution.com/ads/1.0/'>\n        <Attrib:Ads>\n        <rdf:Seq>\n        <rdf:li rdf:parseType='Resource'>\n        <Attrib:Created>2024-05-10</Attrib:Created>\n        <Attrib:ExtId>e7eaf957-4c3d-49f9-aee3-7df1f4b894a7</Attrib:ExtId>\n        <Attrib:FbId>525265914179580</Attrib:FbId>\n        <Attrib:TouchType>2</Attrib:TouchType>\n        </rdf:li>\n        </rdf:Seq>\n        </Attrib:Ads>\n        </rdf:Description>\n\n        <rdf:Description rdf:about=''\n        xmlns:pdf='http://ns.adobe.com/pdf/1.3/'>\n        <pdf:Author>JIM TZENG</pdf:Author>\n        </rdf:Description>\n\n        <rdf:Description rdf:about=''\n        xmlns:xmp='http://ns.adobe.com/xap/1.0/'>\n        <xmp:CreatorTool>Canva (Renderer)</xmp:CreatorTool>\n        </rdf:Description>\n        \n        </rdf:RDF>\n        </x:xmpmeta>"
+    }
+}
