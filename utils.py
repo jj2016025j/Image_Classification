@@ -1,9 +1,9 @@
 def get_generate_params():
     return {
         "prompt": "(masterpiece, best quality, highres, ultra-detailed, 8k, 4k:1.4),(1girl, solo:1.4)(full_body:1.3)",
-        "negative_prompt": "(nsfw, nipple), (easynegative), (low quality:2), lowres, sketch, sketchby bad-artist, paintingby bad-artist, photographby bad-artist, traditional media, unfinished, abstract, blurry, signature, watermark, parody, oekaki, bad anatomy, bad hands, fewer digits, extra digit, missing arms, extra fingers, fewer fingers, extra leg, missing legs, wrong feet, wrong legs, (worst quality:2), (normal quality:2), (monochrome:1.21), (grayscale:1.21), skin spots, acnes, skin blemishes, age spot, glans, (fuze:1.4), (deformed:1.3), (malformed hands:1.4), (poorly drawn hands:1.4), (mutated fingers:1.4), (extra limbs:1.35)",
+        "negative_prompt": "(easynegative), (low quality:2), lowres, sketch, sketchby bad-artist, paintingby bad-artist, photographby bad-artist, traditional media, unfinished, abstract, signature, watermark, parody, oekaki, bad anatomy, bad hands, fewer digits, extra digit, missing arms, extra fingers, fewer fingers, extra leg, missing legs, wrong feet, wrong legs, (worst quality:2), (normal quality:2), (monochrome:1.21), (grayscale:1.21), skin spots, acnes, skin blemishes, age spot, glans, (fuze:1.4), (deformed:1.3), (malformed hands:1.4), (poorly drawn hands:1.4), (mutated fingers:1.4), (extra limbs:1.35)",
         "styles": [],
-        "seed": 4197573238,
+        "seed": -1,
         "subseed": -1,
         "subseed_strength": 0,
         "seed_resize_from_h": -1,
@@ -34,9 +34,9 @@ def get_generate_params():
         "enable_hr": True,
         "firstphase_width": 0,
         "firstphase_height": 0,
-        "hr_scale": 1,
+        "hr_scale": 2,
         "hr_upscaler": "R-ESRGAN 4x+",
-        "hr_second_pass_steps": 0,
+        "hr_second_pass_steps": 20,
         "hr_resize_x": 0,
         "hr_resize_y": 0,
         "hr_checkpoint_name": "",

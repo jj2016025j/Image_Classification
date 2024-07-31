@@ -63,6 +63,7 @@
 
 # print("Done generating images with all models.")
 
+import json
 import requests
 import base64
 import os
@@ -71,6 +72,18 @@ from io import BytesIO
 
 GENERATE_IMAGE_URL = "http://127.0.0.1:7860/sdapi/v1/txt2img"
 
+def generate_image_test(model_name):
+    """
+    模擬圖片生成邏輯，返回 PIL Image 對象的列表
+    """
+    try:
+        # 模擬生成圖片
+        images = [Image.new('RGB', (512, 512), color='red') for _ in range(1)]
+        return images
+    except Exception as e:
+        print(f"Error generating image with model {model_name}: {e}")
+        return []
+
 def generate_image(model_name, params):
     params["override_settings"] = {"sd_model_checkpoint": model_name}
     response = requests.post(GENERATE_IMAGE_URL, json=params)
@@ -78,10 +91,15 @@ def generate_image(model_name, params):
         raise Exception(f"Error with model {model_name}: {response.status_code}")
     return response.json().get("images", [])
     
-def save_image(image_data, filename):
+def save_image_with_metadata(image_data, filename, params):
     # 將 base64 編碼的字符串轉換為 PIL Image 對象
-    image_data = base64.b64decode(image_data.split(",", 1)[1])
+    if "," in image_data:
+        image_data = base64.b64decode(image_data.split(",", 1)[1])
+    else:
+        image_data = base64.b64decode(image_data)
     image = Image.open(BytesIO(image_data))
+    # metadata = json.dumps(params)
+    # image.save(filename, format='PNG', pnginfo=Image.PngInfo(metadata=metadata))
     image.save(filename, format='PNG')
     # with open(filename, "wb") as f:
     #     f.write(base64.b64decode(image_data.split(",", 1)[1]))
