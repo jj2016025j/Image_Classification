@@ -1,6 +1,6 @@
 def get_generate_params():
     return {
-        "prompt": "(masterpiece, best quality, highres, ultra-detailed, 8k, 4k:1.4),(1girl, solo:1.4)(full_body:1.3)",
+        "prompt": "(masterpiece, best quality, highres, ultra-detailed, 8k, 4k:1.4),(1girl, solo:1.4)",
         "negative_prompt": "(easynegative), (low quality:2), lowres, sketch, sketchby bad-artist, paintingby bad-artist, photographby bad-artist, traditional media, unfinished, abstract, signature, watermark, parody, oekaki, bad anatomy, bad hands, fewer digits, extra digit, missing arms, extra fingers, fewer fingers, extra leg, missing legs, wrong feet, wrong legs, (worst quality:2), (normal quality:2), (monochrome:1.21), (grayscale:1.21), skin spots, acnes, skin blemishes, age spot, glans, (fuze:1.4), (deformed:1.3), (malformed hands:1.4), (poorly drawn hands:1.4), (mutated fingers:1.4), (extra limbs:1.35)",
         "styles": [],
         "seed": -1,

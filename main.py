@@ -21,15 +21,15 @@ def main():
         #     continue
         model_name = model["model_name"]
         print(f"Generating image with model: {model_name}")
-
-        # try:
-        images = generate_image(model_name, generate_params)
-        for i, img in enumerate(images):
-            image_filename = f"{OUTPUT_DIR}/{model_name}_{uuid.uuid4().hex}.png"
-            save_image_with_metadata(img, image_filename, generate_params)
-        print(f"Image generated and saved for model: {model_name}")
-        # except Exception as e:
-        #     print(e)
+        # {uuid.uuid4().hex}
+        try:
+            images = generate_image(model_name, generate_params)
+            for i, img in enumerate(images):
+                image_filename = f"{OUTPUT_DIR}/{model_name}.png"
+                save_image_with_metadata(img, image_filename, generate_params)
+            print(f"Image generated and saved for model: {model_name}")
+        except Exception as e:
+            print(e)
 
     print("Done generating images with all models.")
 
