@@ -17,6 +17,25 @@ def generate_image(folder, size=(100, 100), color=(255, 0, 0)):
     image = Image.new('RGB', size, color)
     image.save(filename)
     print(f"Generated image: {filename}")
+    
+def generate_image_test(num_images=1):
+    """
+    測試用圖片生成函數，模擬生成圖片
+    :param model_name: 模型名稱（未使用，只是為了與實際生產環境一致）
+    :param num_images: 要生成的圖片數量，默認為 1
+    :return: 生成的 PIL 圖片對象列表
+    """
+    try:
+        # 檢查是否輸入的數量參數有效
+        if num_images <= 0:
+            raise ValueError("Number of images must be greater than 0.")
+
+        # 模擬生成指定數量的 512x512 紅色圖像
+        images = [Image.new('RGB', (512, 512), color='red') for _ in range(num_images)]
+        return images
+    except Exception as e:
+        print(f"Error generating test image: {e}")
+        return []
 
 def generate_random_images(folder, min_size=(50, 50), max_size=(500, 500), color=(255, 0, 0)):
     """

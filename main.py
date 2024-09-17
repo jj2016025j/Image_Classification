@@ -1,37 +1,17 @@
-import uuid
-from models import fetch_models
-from image_generator import generate_image, ensure_output_dir, save_image_with_metadata
-from utils import get_generate_params
+from generated_images.image_generator import generate_images
+from generated_images.save_images import save_images
+from prompt.prompt import adjust_params
 
-OUTPUT_DIR = "generated_images"
+def generate_and_save_images():
+    generate_params = adjust_params()
+
+    images = generate_images(generate_params)
+
+    save_images(images, generate_params)
 
 def main():
-    generate_params = get_generate_params()
-
-    # 創建輸出目錄
-    ensure_output_dir(OUTPUT_DIR)
-
-    # 獲取可用模型列表
-    models = fetch_models()
-
-    # 遍歷每個模型並生成圖片
-    # for model in models:
-    for i, model in enumerate(models):
-        # if i < 10:  # 跳過前兩個模型
-        #     continue
-        model_name = model["model_name"]
-        print(f"Generating image with model: {model_name}")
-        # {uuid.uuid4().hex}
-        try:
-            images = generate_image(model_name, generate_params)
-            for i, img in enumerate(images):
-                image_filename = f"{OUTPUT_DIR}/{model_name}.png"
-                save_image_with_metadata(img, image_filename, generate_params)
-            print(f"Image generated and saved for model: {model_name}")
-        except Exception as e:
-            print(e)
-
-    print("Done generating images with all models.")
+    for num in range(1, 100):
+        generate_and_save_images()
 
 if __name__ == "__main__":
     main()

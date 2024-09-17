@@ -1,6 +1,6 @@
 import os
 import shutil
-from utils import FileUtils
+from prompt.prompt import FileUtils
 
 class FileClassifier:
     def __init__(self, source_dir, base_target_dir, extensions_mapping):

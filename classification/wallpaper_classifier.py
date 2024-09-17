@@ -1,6 +1,6 @@
 import os
 from PIL import Image, UnidentifiedImageError
-from utils import FileUtils
+from prompt.prompt import FileUtils
 
 # 设置 Image.MAX_IMAGE_PIXELS 以避免 DecompressionBombError
 # Image.MAX_IMAGE_PIXELS = None
