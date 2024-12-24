@@ -33,6 +33,3 @@ def rename_files_in_directory(directory):
             os.rename(filepath, new_filepath)
             print(f"已將 '{filename}' 重命名為 '{new_filename}'")
 
-directory = "C:/Users/User/GitHub/ImageClassification/test"
-
-rename_files_in_directory(directory)

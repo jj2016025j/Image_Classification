@@ -1,5 +1,7 @@
 # config.py
 
+MODELS_NAME = "較優"
+
 # 預設參數
 DEFAULT_PARAMS = {
     "prompt": "",

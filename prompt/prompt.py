@@ -1,6 +1,6 @@
 import random
 from prompt.API import fetch_models
-from prompt.config import DEFAULT_PARAMS
+from prompt.config import DEFAULT_PARAMS, MODELS_NAME
 from prompt.negative_generator import get_negatives
 from prompt.parameter_generator import get_parameters
     
@@ -10,9 +10,18 @@ def adjust_params(custom_params=None):
     
     # 獲取可用模型列表
     models = fetch_models()
-    model = random.choice(models)
-    model_name = model["model_name"]
-    print('model:' + model["model_name"] + '\n')
+    # 過濾 model_name 中包含 "較優" 的模型
+    filtered_models = [model for model in models if MODELS_NAME in model["model_name"]]
+    
+    # 檢查是否有符合條件的模型
+    if not filtered_models:
+        raise Exception("No models found with '較優' in model_name")
+    
+    # 從篩選後的模型中隨機選擇一個
+    selected_model = random.choice(filtered_models)
+    
+    model_name = selected_model["model_name"]
+    print('Selected model:', model_name)
    
     parameters_string = get_parameters()
 

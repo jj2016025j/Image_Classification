@@ -36,3 +36,13 @@ if __name__ == "__main__":
     main()
 
 # pip install python-dotenv
+
+from process_images import process_images
+
+if __name__ == "__main__":
+    # 設定來源與目標資料夾
+    source_path = "C:/Users/User/GitHub/ImageClassification/test"
+    target_path = "C:/Users/User/GitHub/ImageClassification/test"
+
+    # 開始處理圖片
+    process_images(source_path, target_path)

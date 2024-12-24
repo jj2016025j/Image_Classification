@@ -1,6 +1,7 @@
+### file_classifier.py
+
 import os
-import shutil
-from prompt.prompt import FileUtils
+from classification import FileUtils
 
 class FileClassifier:
     def __init__(self, source_dir, base_target_dir, extensions_mapping):

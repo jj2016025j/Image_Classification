@@ -80,6 +80,27 @@ class WallpaperClassifier:
 
         print(f"Processed {count} files.")
 
+    def process_images(self):
+        """
+        遍歷圖片並根據條件分類為桌布
+        """
+        for filename in os.listdir(self.source_dir):
+            file_path = os.path.join(self.source_dir, filename)
+            if os.path.isfile(file_path) and filename.lower().endswith((".jpg", ".jpeg", ".png")):
+                # 模擬判斷圖片是否符合條件（僅示例）
+                if self.is_wallpaper(file_path):
+                    move_file(file_path, self.target_dir, filename)
+                    print(f"Classified {filename} as wallpaper.")
+
+    def is_wallpaper(self, file_path):
+        """
+        判斷圖片是否符合桌布條件（僅示例）
+        Returns:
+            bool: 是否符合條件
+        """
+        # 此處可以根據圖片屬性進行判斷
+        return True  # 暫時假設所有圖片符合條件
+    
 if __name__ == "__main__":
     from dotenv import load_dotenv
     load_dotenv()
@@ -92,3 +113,5 @@ if __name__ == "__main__":
 
     classifier = WallpaperClassifier(source_path, target_path, long_edge_threshold, short_edge_threshold, aspect_ratio_threshold)
     classifier.process_images()
+    
+    

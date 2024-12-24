@@ -1,6 +1,8 @@
 import os
 import shutil
 
+from file_operations.ensure_directory import ensure_directory_exists
+
 class FileUtils:
     @staticmethod
     def create_directory(path):
@@ -79,3 +81,21 @@ class FileUtils:
                 if not os.listdir(dir_path):
                     os.rmdir(dir_path)
                     print(f"Removed empty directory: {dir_path}")
+                    
+def create_directory(path):
+    """確保指定路徑存在，若不存在則創建"""
+    if not os.path.exists(path):
+        os.mkdir(path)
+
+def move_file(source_file, target_dir, filename):
+    """將文件移動到目標目錄"""
+    create_directory(target_dir)
+    shutil.move(source_file, os.path.join(target_dir, filename))
+
+def clean_empty_directories(directory):
+    """清除目錄中的空子目錄"""
+    for root, dirs, _ in os.walk(directory, topdown=False):
+        for subdir in dirs:
+            dir_path = os.path.join(root, subdir)
+            if not os.listdir(dir_path):
+                os.rmdir(dir_path)

@@ -2,6 +2,11 @@
 image_quality = [  # 圖像品質
     'masterpiece',  # 大師作品
     'best quality',  # 最高畫質
+    'ultra high res',  # 
+    'ultra high res',  # 
+    'ultra high res',  # 
+    '4K',  # 4K畫質
+    '8K',  # 8K畫質
     '4K quality',  # 4K畫質
     '8K quality',  # 8K畫質
     'high resolution',  # 高解析度
@@ -12,8 +17,6 @@ image_quality = [  # 圖像品質
     'enhanced dynamic range',  # 動態範圍增強
     'ray tracing effect'  # 光線追蹤效果
     'ultra-detailed'  # 超詳細
-    'ray tracing effect'  # 光線追蹤效果
-    'ray tracing effect'  # 光線追蹤效果
     'ray tracing effect'  # 光線追蹤效果
 ]
 
