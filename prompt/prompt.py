@@ -1,5 +1,5 @@
 import random
-from prompt.API import fetch_models
+from prompt.SD_API import fetch_models
 from prompt.config import DEFAULT_PARAMS, MODELS_NAME
 from prompt.negative_generator import get_negatives
 from prompt.parameter_generator import get_parameters

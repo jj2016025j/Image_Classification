@@ -1,10 +1,10 @@
 import os
 from PIL import Image, UnidentifiedImageError
-from classification.FileUtils import create_directory, move_file
-from prompt.prompt import FileUtils
+from dotenv import load_dotenv
 
-# 设置 Image.MAX_IMAGE_PIXELS 以避免 DecompressionBombError
-# Image.MAX_IMAGE_PIXELS = None
+from config.image import ASPECT_RATIO_THRESHOLD, LONG_EDGE_THRESHOLD, SHORT_EDGE_THRESHOLD, SOURCE_DIRECTORY, TARGET_DIRECTORY
+from file_operations.file_operations import FileOperations
+
 Image.MAX_IMAGE_PIXELS = 9999999999999
 
 class WallpaperClassifier:
@@ -32,73 +32,61 @@ class WallpaperClassifier:
         try:
             with Image.open(image_path) as img:
                 width, height = img.size
-                # 判斷較大和較小的值，計算比例
                 larger, smaller = max(width, height), min(width, height)
                 aspect_ratio = larger / smaller
 
                 if aspect_ratio < self.aspect_ratio_threshold or aspect_ratio > 2:
                     return "others"
 
-                computer_wallpaper = larger >= self.long_edge_threshold and smaller >= self.short_edge_threshold
-                mobile_wallpaper = smaller >= self.short_edge_threshold and aspect_ratio >= self.aspect_ratio_threshold
-
-                if computer_wallpaper and width > height:
-                    return "computer_wallpapers"
-                elif mobile_wallpaper and height > width:
-                    return "mobile_wallpapers"
-                else:
-                    return "others"
+                if larger >= self.long_edge_threshold and smaller >= self.short_edge_threshold:
+                    return "computer_wallpapers" if width > height else "mobile_wallpapers"
+                return "others"
         except (OSError, UnidentifiedImageError):
             print(f"Skipped file {image_path}: Unidentified image format")
             return "others"
 
-    def process_images(self):
+    def classify_images(self):
         """
         遍歷源目錄的圖片，根據分類結果進行文件移動
         """
-        create_directory(self.target_dir)
+        FileOperations.create_directory(self.target_path)
         count = 0
 
-        for filename in os.listdir(self.source_dir):
-            sanitized_filename = self.sanitize_filename(filename)
-            file_path = os.path.join(self.source_dir, filename)
-
+        for filename in os.listdir(self.source_path):
+            file_path = os.path.join(self.source_path, filename)
             if not os.path.isfile(file_path):
                 continue
 
-            if filename.lower().endswith((".png", ".jpg", ".jpeg", ".jfif")):
+            if filename.lower().endswith((".png", ".jpg", ".jpeg")):
                 category = self.classify_wallpaper(file_path)
-            elif filename.lower().endswith(".gif"):
-                category = "gifs"
             else:
-                print(f"Skipping file {filename}: Invalid image format")
+                print(f"Skipping file {filename}: Invalid format")
                 continue
 
-            category_path = os.path.join(self.target_dir, category)
-            create_directory(category_path)
-            move_file(file_path, category_path, sanitized_filename)
-            print(f"Moved {filename} to {category_path}")
+            category_path = os.path.join(self.target_path, category)
+            FileOperations.create_directory(category_path)
+            FileOperations.move_file(file_path, category_path, filename)
             count += 1
 
         print(f"Processed {count} files.")
-
-    def process_images(self):
-        """
-        遍歷圖片並根據條件分類為桌布
-        """
-        for filename in os.listdir(self.source_dir):
-            file_path = os.path.join(self.source_dir, filename)
-            if os.path.isfile(file_path) and filename.lower().endswith((".jpg", ".jpeg", ".png")):
-                # 模擬判斷圖片是否符合條件（僅示例）
-                if self.is_wallpaper(file_path):
-                    move_file(file_path, self.target_dir, filename)
-                    print(f"Classified {filename} as wallpaper.")
-
-    def is_wallpaper(self, file_path):
-        """
-        判斷圖片是否符合桌布條件（僅示例）
-        Returns:
-            bool: 是否符合條件
-        """
-        # 此處可以根據圖片屬性進行判斷
-        return True  # 暫時假設所有圖片符合條件
+        
+def wallpaper_classifier_main():
+    """
+    主函數，用於執行圖片分類為桌布操作
+    """
+    # 加載環境變量
+    print(SOURCE_DIRECTORY)
+    print(TARGET_DIRECTORY)
+    print(LONG_EDGE_THRESHOLD)
+    print(SHORT_EDGE_THRESHOLD)
+    print(ASPECT_RATIO_THRESHOLD)
+    
+    # 分類桌布圖片   
+    wallpaper_classifier = WallpaperClassifier(
+        SOURCE_DIRECTORY, 
+        TARGET_DIRECTORY, 
+        LONG_EDGE_THRESHOLD, 
+        SHORT_EDGE_THRESHOLD, 
+        ASPECT_RATIO_THRESHOLD
+    )
+    wallpaper_classifier.classify_images()

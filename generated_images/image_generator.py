@@ -2,15 +2,16 @@ import base64
 from io import BytesIO
 import requests
 from PIL import Image
-from generated_images.config import GENERATE_IMAGE_URL
 
-def generate_images(generate_params):
+from config.image import GENERATE_IMAGE_URL
+
+def generate_images(generate_params, generate_image_url = GENERATE_IMAGE_URL):
     """
-    圖片生成
+    使用 Stable Diffution txt_to_img 進行圖片生成
     """
     try:
         # 調用生成圖片的 API
-        response = requests.post(GENERATE_IMAGE_URL, json=generate_params)
+        response = requests.post(generate_image_url, json=generate_params)
 
         # 檢查 HTTP 回應狀態碼
         if response.status_code != 200:
