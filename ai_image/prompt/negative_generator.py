@@ -1,6 +1,5 @@
 import random
-from prompt.negatives import *
-from prompt.uilte import convert_prompt_to_string
+from ai_image.prompt.data.negatives import *
 
 # 隨機選擇 NSFW-related restrictions
 def generate_nsfw_related():
@@ -49,7 +48,7 @@ def generate_negative():
 
 def get_negatives():
     random_negatives = generate_negative()
-    negatives_string = convert_prompt_to_string(random_negatives)
+    negatives_string = ', '.join(map(str, random_negatives))
     print('negatives:' + negatives_string + '\n')
 
     return negatives_string

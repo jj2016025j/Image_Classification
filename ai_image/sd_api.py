@@ -1,7 +1,6 @@
-# prompt/SD_API.py
+# prompt/sd_api.py
 import requests
-
-from config.image import MODEL_LIST_URL
+from ai_image.config import MODEL_LIST_URL
 
 def fetch_models():
     try:
@@ -11,12 +10,9 @@ def fetch_models():
     except Exception as e:
         print(f"Error fetching models: {e}")
         return []
-  
-def main():
+      
+if __name__ == '__main__':
     models = fetch_models()
 
     for model in models:
         print(f"model_name:{model['model_name']}")
-    
-if __name__ == '__main__':
-    main()

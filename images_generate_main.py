@@ -1,13 +1,14 @@
-from generated_images.image_generator import generate_images
-from generated_images.save_images import save_images
-from prompt.prompt import adjust_params
+
+from ai_image.prompt.prompt import adjust_params
+from ai_image.save_images import ImageOperations
+from ai_image.txt_to_img import generate_images
+from file_utils import generate_time_based_filename
 
 def generate_and_save_images():
     generate_params = adjust_params()
 
     images = generate_images(generate_params)
-
-    save_images(images, generate_params)
+    # ImageOperations.save_images(images, generate_params, generate_time_based_filename)
 
 def main():
     for num in range(1, 100):

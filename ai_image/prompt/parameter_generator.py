@@ -1,6 +1,5 @@
 import random
-from prompt.parameters import *
-from prompt.uilte import convert_prompt_to_string
+from ai_image.prompt.data.parameters import *
 
 # 隨機選擇圖片品質和效果
 def generate_random_picture():
@@ -88,7 +87,7 @@ def generate_parameters():
 
 def get_parameters():
     random_parameters = generate_parameters()
-    parameters_string = convert_prompt_to_string(random_parameters)
+    parameters_string = ', '.join(map(str, random_parameters))
     print('parameters:' + parameters_string + '\n')
 
     return parameters_string
