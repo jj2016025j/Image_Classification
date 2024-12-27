@@ -1,5 +1,5 @@
 import os
-from file_utils import generate_random_string, create_directory
+from file.utils import generate_random_string, create_directory
 
 def generate_text_file(folder, content="Hello, world!"):
     """Generate a text file with specified content."""

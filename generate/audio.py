@@ -1,6 +1,6 @@
 import os
 from pydub.generators import Sine
-from file_utils import generate_random_string, create_directory
+from file.utils import create_directory, generate_random_string
 
 def generate_audio(folder, duration=1000, frequency=440):
     """Generate an audio file with a sine wave."""

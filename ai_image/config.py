@@ -5,7 +5,7 @@ import json
 
 MODEL_LIST_URL = "http://127.0.0.1:7860/sdapi/v1/sd-models"
 GENERATE_IMAGE_URL = "http://127.0.0.1:7860/sdapi/v1/txt2img"
-OUTPUT_DIR = "generated_images/images"
+OUTPUT_DIR = "src/test"
 
 class BaseConfig:
     """Configuration for basic parameters."""

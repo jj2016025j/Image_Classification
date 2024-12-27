@@ -1,8 +1,8 @@
 import random
-from image_utils import generate_image, generate_random_images
-from video_utils import generate_video
-from audio_utils import generate_audio
-from text_utils import generate_text_file
+from generate.audio import generate_audio
+from generate.image import generate_image, generate_random_images
+from generate.text import generate_text_file
+from generate.video import generate_video
 
 # 全局配置
 FILE_GENERATORS = {
@@ -34,7 +34,7 @@ def generate_random_images_within_range(folder, total_times, min_size, max_size)
         generate_random_images(folder, min_size=min_size, max_size=max_size)
         print(f"[{i + 1}/{total_times}] Random image generation complete.")
 
-def main():
+def generate_file_func():
     from ai_image.config import OUTPUT_DIR
     total_files = 20
     total_images = 10
@@ -54,4 +54,4 @@ def main():
     print("\nAll tasks completed.")
 
 if __name__ == "__main__":
-    main()
+    generate_file_func()

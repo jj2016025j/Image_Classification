@@ -1,7 +1,7 @@
 import os
 import cv2
 import numpy as np
-from file_utils import generate_random_string, create_directory
+from file.utils import generate_random_string, create_directory
 
 def generate_video(folder, width=640, height=480, fps=30, duration=5):
     """Generate a video with random content."""
