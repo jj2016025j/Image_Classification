@@ -1,5 +1,5 @@
 import random
-from ai_image.sd_api import fetch_models
+from ai_image.sd_api import get_models
     
 def get_model():
     """
@@ -12,7 +12,7 @@ def get_random_model():
     隨機選擇模型
     """
     # 獲取可用模型列表
-    models = fetch_models()
+    models = get_models()
     filtered_models = [model for model in models if "best" in model["model_name"]]
     
     # 檢查是否有符合條件的模型

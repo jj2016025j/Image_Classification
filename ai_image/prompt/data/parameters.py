@@ -1,4 +1,5 @@
 # Picture quality (畫質類)
+
 image_quality = [  # 圖像品質
     'masterpiece',  # 大師作品
     'best quality',  # 最高畫質
@@ -114,7 +115,7 @@ age = [  # 年齡
     'elderly',  # 老年
     'baby',  # 嬰兒
     'all ages',  # 老少皆宜
-    ''
+    None
 ]
 
 gender = [  # 性別
@@ -124,7 +125,7 @@ gender = [  # 性別
     'androgynous',  # 雙性
     'unspecified',  # 不確定
     'transgender',  # 跨性別
-    ''
+    None
 ]
 
 人数 = [  # 人數
@@ -135,8 +136,10 @@ gender = [  # 性別
     'multiple people',  # 多人
     'team',  # 隊伍
     'crowd',  # 群眾
-    ''
+    None
 ]
+
+number = []
 
 roles_and_jobs = [  # 角色與職業
     'hero',  # 英雄
@@ -165,7 +168,7 @@ roles_and_jobs = [  # 角色與職業
     'explorer',  # 探險家
     'chef',  # 廚師
     'pilot',  # 飛行員
-    ''
+    None
 ]
 
 skin_tone = [  # 膚色
@@ -178,7 +181,11 @@ skin_tone = [  # 膚色
     'bronze',  # 古銅色
     'black',  # 黝黑色
     'grey',  # 灰白色
-    ''
+    None
+]
+
+color_type = [
+    
 ]
 
 body_type = [  # 體型
@@ -191,80 +198,80 @@ body_type = [  # 體型
     'medium build',  # 中等身材
     'giant',  # 巨人
     'pregnant',  # 懷孕
-    ''
+    None
 ]
 
 # 外觀
 五官 = {
-    '眉毛': ['濃密', '稀疏', '修剪整齊', '彎曲', '粗壯', '纖細', ''],
-    '眼睛顏色': ['藍', '綠', '褐', '黑', '灰', '金', '紫', '紅', ''],
-    '嘴巴': ['微笑', '冷酷', '嘟嘴', '露齒微笑', '閉嘴', '張開嘴', ''],
-    '耳朵': ['尖耳', '圓耳', '精靈耳', '動物耳', '大耳朵', '小耳朵', ''],
-    '鬍子': ['粗獷', '修剪整齊', '山羊鬍', '絡腮鬍', '八字鬍', '無鬍子', ''],
-    '牙齒': ['整齊', '尖牙', '獠牙', '缺牙', '潔白', '']
+    '眉毛': ['濃密', '稀疏', '修剪整齊', '彎曲', '粗壯', '纖細', None],
+    '眼睛顏色': ['藍', '綠', '褐', '黑', '灰', '金', '紫', '紅', None],
+    '嘴巴': ['微笑', '冷酷', '嘟嘴', '露齒微笑', '閉嘴', '張開嘴', None],
+    '耳朵': ['尖耳', '圓耳', '精靈耳', '動物耳', '大耳朵', '小耳朵', None],
+    '鬍子': ['粗獷', '修剪整齊', '山羊鬍', '絡腮鬍', '八字鬍', '無鬍子', None],
+    '牙齒': ['整齊', '尖牙', '獠牙', '缺牙', '潔白', None]
 }
 
 頭髮 = {
-    '長度': ['短', '中', '長', '超短', '超長', ''],
-    '顏色': ['黑', '金', '紅', '白', '紫', '藍', '綠', '銀', '棕', ''],
-    '瀏海': ['中分', '齊眉', '側分', '斜劉海', '無劉海', '蓋住眼睛', ''],
-    '辮子': ['單辮', '雙辮', '麻花辮', '低辮', '高辮', '無辮子', ''],
-    '髮型': ['卷髮', '直髮', '波浪髮', '短髮', '長捲髮', '馬尾', '丸子頭', '']
+    '長度': ['短', '中', '長', '超短', '超長', None],
+    '顏色': ['黑', '金', '紅', '白', '紫', '藍', '綠', '銀', '棕', None],
+    '瀏海': ['中分', '齊眉', '側分', '斜劉海', '無劉海', '蓋住眼睛', None],
+    '辮子': ['單辮', '雙辮', '麻花辮', '低辮', '高辮', '無辮子', None],
+    '髮型': ['卷髮', '直髮', '波浪髮', '短髮', '長捲髮', '馬尾', '丸子頭', None]
 }
 
 上半身 = {
-    '胸部': ['平坦', '豐滿', '小', '大', '適中', ''],
-    '腰部': ['纖細', '健壯', '粗壯', '苗條', '無腰', ''],
-    '背部': ['光滑', '紋身', '疤痕', '翅膀痕跡', '']
+    '胸部': ['平坦', '豐滿', '小', '大', '適中', None],
+    '腰部': ['纖細', '健壯', '粗壯', '苗條', '無腰', None],
+    '背部': ['光滑', '紋身', '疤痕', '翅膀痕跡', None]
 }
 
 下半身 = {
-    '屁股': ['圓潤', '平坦', '豐滿', '小', '大', ''],
-    '腿部': ['修長', '肌肉', '纖細', '粗壯', '短', ''],
-    '腳步': ['赤足', '穿鞋', '穿靴子', '穿涼鞋', '']
+    '屁股': ['圓潤', '平坦', '豐滿', '小', '大', None],
+    '腿部': ['修長', '肌肉', '纖細', '粗壯', '短', None],
+    '腳步': ['赤足', '穿鞋', '穿靴子', '穿涼鞋', None]
 }
 
-尾巴 = ['狐尾', '龍尾', '貓尾', '狗尾', '蛇尾', '無尾巴', '']
+尾巴 = ['狐尾', '龍尾', '貓尾', '狗尾', '蛇尾', '無尾巴', None]
 
-翅膀 = ['天使翅膀', '惡魔翅膀', '蝙蝠翅膀', '鳥類翅膀', '龍翅膀', '無翅膀', '']
+翅膀 = ['天使翅膀', '惡魔翅膀', '蝙蝠翅膀', '鳥類翅膀', '龍翅膀', '無翅膀', None]
 
-角 = ['獨角', '雙角', '鹿角', '羊角', '牛角', '無角', '']
+角 = ['獨角', '雙角', '鹿角', '羊角', '牛角', '無角', None]
 
 # Appearance (外觀)
 facial_features = {  # 五官
-    'eyebrows': ['thick', 'thin', 'well-groomed', 'arched', 'bushy', 'delicate', ''],  # 眉毛
-    'eye_color': ['blue', 'green', 'brown', 'black', 'grey', 'gold', 'purple', 'red', ''],  # 眼睛顏色
-    'mouth': ['smile', 'grim', 'pout', 'wide smile', 'closed', 'open', ''],  # 嘴巴
-    'ears': ['pointed', 'round', 'elf ears', 'animal ears', 'large ears', 'small ears', ''],  # 耳朵
-    'beard': ['rough', 'well-trimmed', 'goatee', 'full beard', 'mustache', 'no beard', ''],  # 鬍子
-    'teeth': ['straight', 'sharp', 'fangs', 'missing teeth', 'white teeth', '']  # 牙齒
+    'eyebrows': ['thick', 'thin', 'well-groomed', 'arched', 'bushy', 'delicate', None],  # 眉毛
+    'eye_color': ['blue', 'green', 'brown', 'black', 'grey', 'gold', 'purple', 'red', None],  # 眼睛顏色
+    'mouth': ['smile', 'grim', 'pout', 'wide smile', 'closed', 'open', None],  # 嘴巴
+    'ears': ['pointed', 'round', 'elf ears', 'animal ears', 'large ears', 'small ears', None],  # 耳朵
+    'beard': ['rough', 'well-trimmed', 'goatee', 'full beard', 'mustache', 'no beard', None],  # 鬍子
+    'teeth': ['straight', 'sharp', 'fangs', 'missing teeth', 'white teeth', None]  # 牙齒
 }
 
 hair = {  # 頭髮
-    'length': ['short', 'medium', 'long', 'extra short', 'extra long', ''],  # 長度
-    'color': ['black', 'gold', 'red', 'white', 'purple', 'blue', 'green', 'silver', 'brown', ''],  # 顏色
-    'bangs': ['middle part', 'straight bangs', 'side bangs', 'no bangs', ''],  # 瀏海
-    'braids': ['single braid', 'double braids', 'loose braids', 'no braids', ''],  # 辮子
-    'style': ['curly', 'straight', 'wavy', 'ponytail', 'bun', ''],  # 髮型
+    'length': ['short', 'medium', 'long', 'extra short', 'extra long', None],  # 長度
+    'color': ['black', 'gold', 'red', 'white', 'purple', 'blue', 'green', 'silver', 'brown', None],  # 顏色
+    'bangs': ['middle part', 'straight bangs', 'side bangs', 'no bangs', None],  # 瀏海
+    'braids': ['single braid', 'double braids', 'loose braids', 'no braids', None],  # 辮子
+    'style': ['curly', 'straight', 'wavy', 'ponytail', 'bun', None],  # 髮型
 }
 
 upper_body = {  # 上半身
-    'chest': ['flat', 'full', 'small', 'large', 'average', ''],  # 胸部
-    'waist': ['slim', 'muscular', 'thick', 'petite', 'no waist', ''],  # 腰部
-    'back': ['smooth', 'tattoos', 'scars', 'wings', '']  # 背部
+    'chest': ['flat', 'full', 'small', 'large', 'average', None],  # 胸部
+    'waist': ['slim', 'muscular', 'thick', 'petite', 'no waist', None],  # 腰部
+    'back': ['smooth', 'tattoos', 'scars', 'wings', None]  # 背部
 }
 
 lower_body = {  # 下半身
-    'butt': ['round', 'flat', 'full', 'small', 'large', ''],  # 屁股
-    'legs': ['long', 'muscular', 'slender', 'thick', 'short', ''],  # 腿部
-    'feet': ['barefoot', 'wearing shoes', 'wearing boots', 'wearing sandals', '']  # 腳步
+    'butt': ['round', 'flat', 'full', 'small', 'large', None],  # 屁股
+    'legs': ['long', 'muscular', 'slender', 'thick', 'short', None],  # 腿部
+    'feet': ['barefoot', 'wearing shoes', 'wearing boots', 'wearing sandals', None]  # 腳步
 }
 
-tail = ['fox tail', 'dragon tail', 'cat tail', 'dog tail', 'snake tail', 'no tail', '']  # 尾巴
+tail = ['fox tail', 'dragon tail', 'cat tail', 'dog tail', 'snake tail', 'no tail', None]  # 尾巴
 
-wings = ['angel wings', 'demon wings', 'bat wings', 'bird wings', 'dragon wings', 'no wings', '']  # 翅膀
+wings = ['angel wings', 'demon wings', 'bat wings', 'bird wings', 'dragon wings', 'no wings', None]  # 翅膀
 
-horns = ['single horn', 'double horns', 'antlers', 'ram horns', 'bull horns', 'no horns', '']  # 角
+horns = ['single horn', 'double horns', 'antlers', 'ram horns', 'bull horns', 'no horns', None]  # 角
 
 # Clothing (服裝)
 full_body_clothing = [  # 全身服裝
@@ -281,7 +288,7 @@ full_body_clothing = [  # 全身服裝
     'samurai armor',  # 武士服
     'gown',  # 晚禮服
     'naked, nude',  # 裸體
-    ''
+    None
 ]
 
 clothing_style = [  # 衣服風格
@@ -298,7 +305,7 @@ clothing_style = [  # 衣服風格
     'military',  # 軍裝風
     'romantic',  # 浪漫風
     'medieval',  # 中世紀風
-    ''
+    None
 ]
 
 accessories = [  # 裝飾
@@ -312,7 +319,7 @@ accessories = [  # 裝飾
     'crystals',  # 水晶
     'feathers',  # 裝飾羽毛
     'sequins',  # 亮片
-    ''
+    None
 ]
 
 # Head, upper, and lower body accessories
@@ -328,7 +335,7 @@ head_accessories = [  # 頭部配件
     'rabbit ears',  # 兔耳
     'hairband',  # 髮帶
     'veil',  # 頭紗
-    ''
+    None
 ]
 
 服裝 = [
@@ -345,7 +352,7 @@ head_accessories = [  # 頭部配件
     'T恤', 
     '針織衫', 
     '迷彩服', 
-    ''
+    None
 ]
 
 upper_body_accessories = [  # 上半身配件
@@ -355,7 +362,7 @@ upper_body_accessories = [  # 上半身配件
     'shoulder pads',  # 肩章
     'ring',  # 戒指
     'watch',  # 手錶
-    ''
+    None
 ]
 
 lower_body_accessories = [  # 下半身配件
@@ -366,7 +373,7 @@ lower_body_accessories = [  # 下半身配件
     'ankle bracelets',  # 腳鐲
     'sandals',  # 涼鞋
     'sneakers',  # 運動鞋
-    ''
+    None
 ]
 
 # Poses (姿勢)
@@ -384,7 +391,7 @@ poses = {  # 動作
         'hugging',  # 擁抱
         'raising hand',  # 抬手
         'fist clenching',  # 握拳
-        ''
+        None
     ],
     'gaze': [
         'straight ahead',  # 正視
@@ -395,7 +402,7 @@ poses = {  # 動作
         'narrowed eyes',  # 瞇眼
         'staring',  # 凝視
         'glancing',  # 瞟視
-        ''
+        None
     ],
     'expression': [
         'smiling',  # 微笑
@@ -407,7 +414,7 @@ poses = {  # 動作
         'shy',  # 害羞
         'anxious',  # 焦慮
         'confident',  # 自信
-        ''
+        None
     ],
     'emotion': [
         'joyful',  # 愉悅
@@ -421,20 +428,20 @@ poses = {  # 動作
         'satisfied',  # 滿足
         'jealous',  # 嫉妒
         'desperate',  # 絕望
-        ''
+        None
     ],
     'upper_body': [
         'hands on hips',  # 雙手插腰
         'crossed arms',  # 交叉雙臂
         'raising hand',  # 抬手
         'holding weapon',  # 手持武器
-        ''
+        None
     ],
     'lower_body': [
         'standing still',  # 靜止站姿
         'squatting',  # 蹲姿
         'crossed legs',  # 雙腿交叉
-        ''
+        None
     ]
 }
 
@@ -448,7 +455,7 @@ seasons = [  # 季節
     'dry season',  # 乾季
     'snow season',  # 雪季
     'typhoon season',  # 颱風季
-    ''
+    None
 ]
 
 atmosphere = [  # 氛圍
@@ -462,7 +469,7 @@ atmosphere = [  # 氛圍
     'futuristic',  # 未來感
     'surreal',  # 超現實
     'classical',  # 古典
-    ''
+    None
 ]
 
 lighting = [  # 光線效果
@@ -475,7 +482,7 @@ lighting = [  # 光線效果
     'dusk light',  # 黃昏光
     'morning light',  # 晨光
     'lightning',  # 閃電光
-    ''
+    None
 ]
 
 outdoor = [  # 室外
@@ -488,7 +495,7 @@ outdoor = [  # 室外
     'garden',  # 花園
     'castle',  # 城堡
     'waterfall',  # 瀑布
-    ''
+    None
 ]
 
 indoor = [  # 室內
@@ -501,5 +508,7 @@ indoor = [  # 室內
     'studio',  # 工作室
     'hall',  # 大廳
     'church',  # 教堂
-    ''
+    None
 ]
+
+c_3c = []

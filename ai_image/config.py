@@ -3,67 +3,88 @@
 import difflib
 import json
 
-MODEL_LIST_URL = "http://127.0.0.1:7860/sdapi/v1/sd-models"
+# get
+SD_API_BASE_URL = "http://127.0.0.1:7860"
+MODEL_LIST_URL = "/sdapi/v1/sd-models"
+CONFIG_URL = "/sdapi/v1/config"
+SAMPLER_LIST_URL = "/sdapi/v1/samplers"
+UPSCALER_LIST_URL = "/sdapi/v1/upscalers"
+LORA_LIST_URL = "/sdapi/v1/loras"
+
+#post
 GENERATE_IMAGE_URL = "http://127.0.0.1:7860/sdapi/v1/txt2img"
+
+# output
 OUTPUT_DIR = "src/test"
 
 class BaseConfig:
     """Configuration for basic parameters."""
     def __init__(self):
-        self.prompt = "((masterpiece)), (best quality), beautiful, photography, 8K, HDR, highres, absurdres:1.2, ultra-detailed, (vibrant color:1.2), ambient light, perfect lighting, textured skin, extremely detailed face, beautiful detailed face, beautiful detailed eyes, beautiful detailed pupils, detailed background, 1girl, cute, (Kpop idol), rebecca \(cyberpunk\), solo, colored skin, white skin, (green hair:0.7), multicolor hair, very long hair, small breasts, red pupils,multicolor pupils ,cowboy shot, tilted down, solo, female, nude, naked, thighs, breasts, multicolor, thong, navel, thicc, <lora:rebeccaCyberpunk_v10:0.8>, (family friendly:0.5)emotions"
-        self.negative_prompt = "(worst quality:2), (low quality:2), (normal quality:2), ((monochrome)), ((grayscale)),paintings, sketches, normal quality, lowres, lens flare, text, artist name, username, (bad anatomy), nsfw, black bra"
-        self.styles = []
-        self.seed = -1
-        self.sampler_name = "DPM++ 2M SDE Karras"
-        self.batch_size = 1
-        self.n_iter = 1
-        self.steps = 20
-        self.cfg_scale = 7
-        self.height = 512
-        self.width = 768
-        self.restore_faces = True
-        self.tiling = False
+        self.prompt = "((masterpiece)), (best quality), beautiful, photography, 8K, HDR, highres, absurdres:1.2, ultra-detailed, (vibrant color:1.2), ambient light, perfect lighting, textured skin, extremely detailed face, beautiful detailed face, beautiful detailed eyes, beautiful detailed pupils, detailed background, 1girl, cute, (Kpop idol), rebecca \(cyberpunk\), solo, colored skin, white skin, (green hair:0.7), multicolor hair, very long hair, small breasts, red pupils,multicolor pupils ,cowboy shot, tilted down, solo, female, nude, naked, thighs, breasts, multicolor, thong, navel, thicc, <lora:rebeccaCyberpunk_v10:0.8>, (family friendly:0.5)emotions" # 正面提示，用於引導生成圖像的主題和細節。
+        self.negative_prompt = "(worst quality:2), (low quality:2), (normal quality:2), ((monochrome)), ((grayscale)),paintings, sketches, normal quality, lowres, lens flare, text, artist name, username, (bad anatomy), nsfw, black bra"  # 負面提示，用於避免不希望出現的內容。
+        self.styles = []  # 圖像風格列表，應用預定義的風格。
+        self.seed = -1  # 隨機種子，-1 表示隨機生成。
+        self.seed_resize_from_h = -1  # 隨機種子生成時的高度調整（像素），-1 表示禁用。
+        self.seed_resize_from_w = -1  # 隨機種子生成時的寬度調整（像素），-1 表示禁用。
+        self.eta = 0  # 採樣器的 eta 值，控制生成過程的隨機性。
+        self.denoising_strength = 0.5  # 降噪強度，用於高分辨率處理時調整生成細節。
+        self.sampler_name = "DPM++ 2M SDE Karras"  # 採樣器名稱，控制生成方式。
+        self.sampler_index = "DPM++ 2M SDE Karras"  # 採樣器索引，可能是內部使用的參數。
+        self.batch_size = 1  # 每批生成的圖像數量。
+        self.n_iter = 1  # 生成的迭代次數。
+        self.steps = 20  # 採樣步驟數量，越高生成細節越多但速度越慢。
+        self.cfg_scale = 7  # 引導比例，用於平衡提示語與隨機生成內容的影響。
+        self.height = 512  # 圖像高度（像素）。
+        self.width = 768  # 圖像寬度（像素）。
+        self.restore_faces = True  # 是否啟用面部修復功能。
+        self.tiling = False  # 是否啟用平鋪模式（生成無縫圖像）。
+        self.subseed = -1  # 子隨機種子，用於變化主隨機種子生成的內容。
+        self.subseed_strength = 0  # 子隨機種子的影響程度。
+        self.postprocess_upscaler = "R-ESRGAN 4x+"  # 後處理的放大器名稱。
 
 class HighResConfig:
     """Configuration for high-resolution parameters."""
     def __init__(self):
-        self.enable_hr = True
-        self.hr_scale = 2
-        self.hr_upscaler = "R-ESRGAN 4x+"
-        self.hr_second_pass_steps = 20
-        self.firstphase_width = 0
-        self.firstphase_height = 0
-        self.hr_resize_x = 0
-        self.hr_resize_y = 0
-        self.hr_checkpoint_name = ""
-        self.hr_sampler_name = ""
-        self.hr_prompt = ""
-        self.hr_negative_prompt = ""
+        self.enable_hr = True  # 是否啟用高分辨率處理。
+        self.hr_scale = 2  # 高分辨率放大比例。
+        self.hr_upscaler = "R-ESRGAN 4x+"  # 高分辨率放大器名稱。
+        self.hr_second_pass_steps = 20  # 高分辨率生成的採樣步驟數量。
+        self.firstphase_width = 0  # 第一階段生成的寬度（像素），0 表示與主圖像一致。
+        self.firstphase_height = 0  # 第一階段生成的高度（像素），0 表示與主圖像一致。
+        self.hr_resize_x = 0  # 高分辨率模式下，水平調整的目標像素數，0 表示不調整。
+        self.hr_resize_y = 0  # 高分辨率模式下，垂直調整的目標像素數，0 表示不調整。
+        self.hr_checkpoint_name = ""  # 用於高分辨率生成的模型名稱（可選）。
+        self.hr_sampler_name = ""  # 用於高分辨率生成的採樣器名稱（可選）。
+        self.hr_prompt = ""  # 高分辨率階段的正面提示（可選）。
+        self.hr_negative_prompt = ""  # 高分辨率階段的負面提示（可選）。
 
 class PostProcessingConfig:
     """Configuration for post-processing parameters."""
     def __init__(self):
         self.postprocessing = {
-            "postprocess_upscale_by": 2,
-            "postprocess_upscaler": "R-ESRGAN 4x+"
+            "postprocess_upscale_by": 2,  # 圖像放大的倍數（後處理）。
+            "postprocess_upscaler": "R-ESRGAN 4x+"  # 放大器名稱（後處理）。
         }
         self.extras = {
-            "postprocess_upscale_by": 2,
-            "postprocess_upscaler": "R-ESRGAN 4x+"
+            "postprocess_upscale_by": 2,  # 圖像放大的倍數（附加功能）。
+            "postprocess_upscaler": "R-ESRGAN 4x+"  # 放大器名稱（附加功能）。
         }
 
 class OtherConfig:
     """Configuration for other parameters."""
     def __init__(self):
         self.override_settings = {
-            "sd_model_checkpoint": "best_meinaunreal_v1Beta"
+            "sd_model_checkpoint": "best_meinaunreal_v1Beta"  # 指定使用的模型名稱。
         }
-        self.disable_extra_networks = False
-        self.script_name = ""
-        self.script_args = []
-        self.send_images = True
-        self.save_images = False
-        self.alwayson_scripts = {}
+        self.override_settings_restore_afterwards = True  # 使用完後恢復設置。
+        self.disable_extra_networks = False  # 是否禁用額外的網絡（如插件模型）。
+        self.script_name = ""  # 自定義腳本名稱（可選）。
+        self.script_args = []  # 自定義腳本參數（可選）。
+        self.send_images = True  # 是否返回生成的圖像。
+        self.save_images = True  # 是否保存生成的圖像。
+        self.do_not_save_samples = True  # 是否禁用保存中間樣本。
+        self.do_not_save_grid = True  # 是否禁用保存圖像網格。
+        self.alwayson_scripts = {}  # 始終啟用的腳本（如預處理插件）。
         
 class ParamsConfig:
     """Main configuration class combining all configurations."""
