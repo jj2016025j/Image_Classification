@@ -1,15 +1,17 @@
 import random
+from ai_image.prompt.data.composition_and_angle import CompositionPrompts, EffectsPrompts, PerspectivePrompts
+from ai_image.prompt.data.image_style import ImageStyle
+from ai_image.prompt.data.imgae_quality import ImageSettings
 from ai_image.prompt.data.parameters import *
 
 # 隨機選擇圖片品質和效果
 def generate_random_picture():
     return [
-        random.choice(local_enhancements),
-        random.choice(image_quality),
-        random.choice(perspective),
-        random.choice(image_style),
-        random.choice(effects),
-        random.choice(composition),
+        ImageSettings().generate_combined_list(mode='positive', count=20),
+        ImageStyle().get_image_style(),
+        PerspectivePrompts().generate_prompt(count=1),
+        CompositionPrompts().generate_prompt(count=1),
+        EffectsPrompts().generate_prompt(count=3)
     ]
 
 # 隨機選擇外觀和角色

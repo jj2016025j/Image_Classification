@@ -74,12 +74,12 @@ missing fingers, extra fingers, missing hand, extra hand, bad hands,
 missing limb, extra limb, missing arm, missing leg, extra arm, extra leg,
 extra head, bad teeth, missing teeth,
 chubby, fat, obese, overweight, starving, starved, malnourished,
+ (low quality, worst quality), displeasing, ugly, poorly drawn, displeasing, very displeasing, worst quality, bad quality, oldest, deformed limbs, bad anatomy, comic, frames
  
  
  
  
- 
- 
+ Score_6, score_5, score_4, worst quality, low quality, text, censored, deformed, bad hand, blurry, (watermark), (simple background), ugly, (old looking woman's face:1.3), bunny ears, extra hands, deformed fingers, extra fingers, fat, chubby body, narrow face, camera or phone, poor_quality_eyes, watermark, pussy, extra_limbs, fused_limbs, bad_anatomy, same hair, twins, futa, twenties, middle aged, old, transexual, trans, extra legs, extra arms, bad anatomy,
 worst quality, bad quality, low quality, lowres, ugly, blurry, censored,
 tanlines, pubic hair, muscular, abs, plump, wrinkles, ribs, 
 text, watermark, logo, signature, artist name, patreon,  
@@ -173,17 +173,49 @@ safe_neg,
 safe_neg,
 (drawn, furry, illustration, cartoon, anime, comic:1.5), 3d, cgi, extra fingers, (source_anime, source_cartoon, source_furyy, source_western, source_comic, source_pony), (teeth), high quality,  eye shadow, makeup,  denim, earring, jewelry, tanlines,
 safe_neg,
- 
- 
- 
-
-
-
-
-
-
-
-
+ safe_neg, Stable_Yogis_PDXL_Negatives-neg,
+worst quality, bad quality, low quality, lowres, ugly, blurry, censored,
+tanlines, pubic hair, muscular, abs, plump, wrinkles, ribs,
+text, watermark, logo, signature, artist name, patreon,
+bad eyes, cross-eyed, uneven eyes, mismatched irises, blurry eyes, poor quality eyes,
+bad anatomy, disjointed, contorted, mutant,
+missing fingers, extra fingers, missing hand, extra hand, bad hands,
+missing limb, extra limb, missing arm, missing leg, extra arm, extra leg,
+extra head, bad teeth, missing teeth,
+chunky, fat, obese, overweight, starving, starved, malnourished,
+ score_6, score_5, score_4, lowres, bad anatomy, bad hands, signature, watermarks, ugly, imperfect eyes, skewed eyes, unnatural face, unnatural body, error, extra limb, missing limbs, bad art, bad painting, bad photo, bad image,  old woman, skirt on male ,milf,,
+ score_5, score_4, score_3, score_2, score_1, simple background, blur, low quality, censored, bucktooth, cartoon, ugly, anime, ghostly, deformed, dismembered, disembodied, detached, polydactyl, amputated, contorted, semi-realistic, 3d render, skinny, thin,
+score_6, score_5, score_4, pubic hair, pony, gaping, muscular, makeup, censored, furry, young, childish, blue penis, green penis, monochrome, easynegative, ng_deepnegative_v1_75t, negative_hand
+zPDXL-neg,(score_6, score_5, score_4, pony, gaping, muscular, censored, furry, child, kid, chibi, 3d, monochrome)
+watermark, text, score_1, score_2, score_3, text, ugly, deformed, noisy, blurry, distorted, grainy, drawing, painting, crayon, sketch, graphite, impressionist, noisy, blurry, soft, deformed, ugly, anime, cartoon, graphic, text, painting, crayon, graphite, abstract, glitch, deformed, mutated, ugly, disfigured
+score_6, score_5, score_4, source_pony, (worst quality:1.2), (low quality:1.2), (normal quality:1.2), lowres, bad anatomy, bad hands, signature, watermarks, ugly, imperfect eyes, skewed eyes, unnatural face, unnatural body, error, extra limb, missing limbs, painting by bad-artist, 3d art, nipple ring, extra hands, extra fingers, tan lines, covered nipples, colored eyeglasses lenses
+score_4,score_5,score_3,score_2,score_1,censored, simple background,  source_pony,source_furry,photo,hyperrealistic,realistic, parted bangs,3d, ((10-funny-looking-joints, 5-funny-looking-fingers)),
+signature, score_6, score_5, score_4, ugly face, mutated hands, low res, blurry face, black and white,
+score_4, score_5, score_6, fat; black hair; weapon; sword; long hair
+score_4,score_5,score_3,score_2,score_1,censored, simple background,  source_pony,source_furry,photo,hyperrealistic,realistic, parted bangs,3d, ((10-funny-looking-joints, 5-funny-looking-fingers)),
+score_4, score_5, score_6, futanari, (dark, low light:1.4), (low quality:1.3), (worst quality:1.3), (monochrome:0.8), (deformed:1.3), (malformed hands:1.4), (poorly drawn hands:1.4), (mutated fingers:1.4), (bad anatomy:1.3), (extra limbs:1.35), (poorly drawn face:1.4), (signature:1.2), (artist name:1.2), (watermark:1.2), long neck, distorted hands,distorted fingers, simple background, censored,text,signature, lineless, watermark, logo, easynegative,  low-quality, moir pattern, downsampling, aliasing, distorted, blurry, glossy, blur, jpeg artifacts, compression artifacts, poorly drawn, low-resolution, bad, distortion, twisted, excessive, exaggerated limbs, mixed characters, grainy, error, pattern, beginner, pixelated, fake, hyper, glitch, overexposed, bad-contrast, Deformed, Deformed face, Deformed fingers, Deformed hands, Out of frame, Draft, Grainy, Kitsch, Low-res,sketch, black and white, doujinshi, exaggerated anatomy,  SimpleNegativeV3, zPDXLxxx,
+score_6, score_5, score_4, source_pony, (worst quality:1.2), (low quality:1.2), (normal quality:1.2), lowres, bad anatomy, bad hands, signature, watermarks, ugly, imperfect eyes, skewed eyes, unnatural face, unnatural body, error, extra limb, missing limbs, painting by bad-artist, 3d art, nipple ring,  extra hands, extra fingers,  tan lines, underwear, man, pubic hair, kids, child, men, boy,
+score_6, score_5, score_4, source_pony, (worst quality:1.2), (low quality:1.2), (normal quality:1.2), lowres, bad anatomy, bad hands, signature, watermarks, ugly, imperfect eyes, skewed eyes, unnatural face, unnatural body, error, extra limb, missing limbs, painting by bad-artist, 3d art, nipple ring, looking at the viewer, extra hands, extra fingers,  tan lines,
+score_6, score_5, score_4, pony, gaping, censored, furry, child, kid, chibi, 3d, photo, monochrome, elven ears, anime, multiple cocks, extra legs, extra hands, mutated legs, mutated hands, big man, high man, pony_negativeV2
+(smooth skin:1.2),  embedding:CyberRealistic_Negative_PONY-neg embedding:NEGATIVE_HANDS,  blurry, low-res, worst quality, anime, cartoon, 3d, muscular_female, shiny skin, woman, score_6_up, score_5_up, score_4_up, (child, chibi:1.2), ribs, error, signature, watermark, patreon, username, artist name, text, censored, (harsh shadows, overexposed, exposure:1.2)
+blurry, low resolution, oversaturated, poorly defined, distorted, unnatural colors, bad anatomy, flat lighting, artifacts, lack of detail, cartoonish, out of focus, unnatural poses, low contrast, excessive noise, dull colors, messy composition, (3d, hyperrealistic, rough sketch:1.1), multiple hands, logo, monochrome, low-res, jpeg artifacts, watermark, signature, asymmetrical,, deformed, mutated, extra limb, ugly, missing limb, floating limbs, disconnected limbs, malformed hands, long neck, abnormal proportions, disappearing or fused limbs, abnormal eye proportions, freckles
+source_furry, source_pony, source_Futanari, off shoulder,  jacket, bowtie, source_cartoon, gay, monochrome, DeepNegative_xl_v1, censored, 3d, unaestheticXL_3x3
+safe_neg, (score_6, score_5, score_4, score_7:1.5),(watermark),((poorly lit model)),(worst detailed eyes:1.5),(source_anime,source_cartoon,source pony,source furry,sourec_painting), ugly face ,ugly eyes,bad eyes, deformed eyes,cross-eyed,low res, blurry face,muscular female,bad anatomy,gaping, censored, furry, 3d,
+(worst quality:2),(low quality:2),(normal quality:2),
+score_4, score_5, score_6, (lesbians),futanari,extra fingers,distorted hands,distorted fingers, muscular,low quality, lowres, bad anatomy,worst quality, simple background, censored,text,signature,  lineless,watermark,signature, logo, source_anime, FastNegativeEmbedding,  low-quality, moir pattern, downsampling, aliasing, distorted, blurry, glossy, blur, jpeg artifacts, compression artifacts, poorly drawn, low-resolution, bad, distortion, twisted, excessive, exaggerated pose, exaggerated limbs, mixed characters, grainy, symmetrical, duplicate, error, pattern, beginner, pixelated, fake, hyper, glitch, overexposed, high-contrast, bad-contrast, black and white, NegfeetV2, messy, Deformed, Deformed face, Deformed fingers, Deformed hands, Out of frame, Poorly drawn face, Poorly drawn feet, Poorly drawn hands, Draft, Grainy, Kitsch, Low-res, old, sketch, black and white, doujinshi, lifting sweater, bad fingers, merged fingers, bell, pov,
+civit_nsfw, safe_neg, civit_nsfw, safe_neg, easynegative, negative_hand, score_4, score_5, score_6, (lesbians),futanari, (extra fingers:2.0),distorted hands,distorted fingers, muscular,low quality, lowres, bad anatomy,worst quality, simple background, censored,text,signature, logo, low-quality, moir pattern, downsampling, aliasing, distorted, blurry, glossy, blur, jpeg artifacts, compression artifacts, poorly drawn, low-resolution, bad, distortion, twisted, excessive, exaggerated pose, exaggerated limbs, mixed characters, grainy, symmetrical, duplicate, error, pattern, beginner, pixelated, fake, hyper, glitch, overexposed, high-contrast, bad-contrast, black and white, messy, Deformed, Deformed face, Deformed fingers, Deformed hands, Poorly drawn face, Poorly drawn feet, Poorly drawn hands, Draft, Grainy, Kitsch, Low-res, old, sketch, black and white, doujinshi, exaggerated anatomy, ((body straps:1.2)), (earrings), (bracelet:1.2), (gloves:1.2), (leather straps:1.2), (panties), heart buttplug,
+Compression artifacts, bad art, worst quality, low quality, plastic, fake, bad limbs, conjoined, featureless, bad features, incorrect objects, watermark, logo, (multiple penis), two penis,
+mutated hands, blurry, hazy, furry, anthro, necklace,
+(worst quality,low quality:1.4), logo, text, monochrome, Deformity,Twisted limbs, Incorrect proportions, Ugliness, Ugly limbs, mascara, makeup, hands, fingers, holding penis, detached penis, (multiple penis), two penis,
+(worst quality,low quality:1.4), logo, text, monochrome, Deformity,Twisted limbs, Incorrect proportions, Ugliness, Ugly limbs, Deformed arm, Deformed fingers, Three hands, Deformed hand, 4 fingers, 6 fingers, Deformed thigh, Twisted thigh, Three legs, Deformed foot, Twisted foot, Terrible foot, 6 toes, 4 toes, Ugly foot, Short neck, Curved spine, Muscle atrophy, Bony,Facial asymmetry, Excess fat, Awkward gait, Incoordinated body, Double chin, Long chin, Elongated physique, Short stature, Obese physique, Emaciated, (embedding:JuggernautNegative-neg:1), (embedding:easynegative:1),
+worst quality, extra fingers, missing fingers, poorly rendered hands, mutation, deformed iris, deformed pupils, deformed limbs, missing limbs, amputee, amputated limbs, watermark, logo , text, piercing, big eyes , teeth, cartoon, shallow depth of field, makeup  easynegative
+bad-hands-5,deformed body,deformed arms,deformed legs,deformed limbs,bad anatomy,watermark, text,head out of frame,deformed legs,deformed body,teeth, dark-skinned female, deformed eyes
+score_4, score_5, score_6, easynegative, badhandv4, beard, mustache, boy, man, elderly, 30 year old, 40 year old, low quality, wide waist, pubic hair, tanlines, Incredibles logo, shirt logo, graphic tee,bad teeth,
+safe_neg, safe_neg, (3d, render, cgi, doll, cartoon, illustration, painting, digital art, anime, fake, 3d modeling), (worst quality, low quality, low resolution), (bad anatomy, bad proportions, asymmetrical features), child, disfigured, deformed, malformed, unrealistic proportions, mutated, unnatural textures, fused fingers, extra limbs, extra fingers, distorted, twisted limbs, malformed hands, bad hands, bad fingers, bad eyes, bad teeth, blurry, duplicated, cloned, conjoined, missing limbs, flat lighting, overexposed, underexposed, smudged, gross, glossy appearance, cartoonish expressions, plastic look, fake skin texture, artificial shadows, uncanny valley, creepy, artifacts, text, logo, watermark, low focus, poor perspective, exaggerated features, depth of field errors, poor skin tones, oversaturated, overly sharp, exaggerated makeup, blend, over-smoothed skin, shiny or waxy textures, (motion blur, overprocessing), overly perfect symmetry, poorly rendered hair or eyelashes, (asian face),
+score_4, score_5, score_6, pony, text, blur, low-resolution, low-quality, grainy, glossy, poorly drawn, amateur, poorly shot, compression artifacts, photo, 3d, noise, long neck, abs, Asian, source_anime, ((ugly face, ugly, ugly girl)), muscular female, ((proportions defects, defects of anatomy, face defects, eye defects, beauty defects, lip defects, nose defects, hair defects, pupil defects, skin defects, body defects, defects of nipples, defects of stomsch,  breast defects, figure defects, butt defects, waist defects, hip defects, pussy defects, pubic defects, leg defects, arm defects, shoulder defects, finger defects, makeup defects, stocking defects, clothing defects, decoration defects, realism defects, texture defects, background defects, lighting defects, light defects, shadow defects, weight defects, age defects, amputation defects, double limb defects, limb regrowth defects, deformed eyes)), Black man, freckles face, cropped, different pupils,uneven eyes, saggy breasts, childs
+source_furry, source_pony, source_Futanari, source_cartoon, source_gay, monochrome, DeepNegative_xl_v1, censored, 3d, unaestheticXL_3x3
+score_3, score_2, score_1, worst quality, low quality, lowres, b&w, blurry, watermark, text, censored, 3d, render, child, fury, alien, (makeup:1.5), earrings, teeth, (:1.3), (red cheeks:1.4), (large nose:1.4), (needle:1.7), (strong cheek bone:1.3), (strong jaw bone:1.5), blurry face,
+Neo Photorealistic Art Style, A Japanese girl with fox ears and flowing black hair wears a sleek windbreaker jacket. She radiates cutting-edge Neo-Japan futurism, set in a surreal, intricate futuristic background.
 
 
 

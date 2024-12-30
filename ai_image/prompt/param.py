@@ -22,17 +22,17 @@ def adjust_params():
     """
     隨機參數
     """
-    default_params = ParamsConfig().to_dict()
+    adjust_params = ParamsConfig().to_dict()
     
     parameters_string = get_parameters()
-    default_params["prompt"] = parameters_string
+    adjust_params["prompt"] = parameters_string
     
     negatives_string = get_negatives()
-    default_params["negative_prompt"] = negatives_string
+    adjust_params["negative_prompt"] = negatives_string
     
     model_name = get_model()
-    default_params["override_settings"]["sd_model_checkpoint"] = model_name
+    adjust_params["override_settings"]["sd_model_checkpoint"] = model_name
 
-    print(f"參數內容: {default_params}")
+    print(f"參數內容: {adjust_params}")
 
-    return default_params
+    return adjust_params

@@ -1,108 +1,106 @@
 # Picture quality (畫質類)
 
-image_quality = [  # 圖像品質
-    'masterpiece',  # 大師作品
-    'best quality',  # 最高畫質
-    'ultra high res',  # 
-    'ultra high res',  # 
-    'ultra high res',  # 
-    '4K',  # 4K畫質
-    '8K',  # 8K畫質
-    '4K quality',  # 4K畫質
-    '8K quality',  # 8K畫質
-    'high resolution',  # 高解析度
-    'super high resolution',  # 超高解析度
-    'highres',  # 高分辨率
-    'HDR',  # HDR
-    'delicate quality',  # 細膩畫質
-    'enhanced dynamic range',  # 動態範圍增強
-    'ray tracing effect'  # 光線追蹤效果
-    'ultra-detailed'  # 超詳細
-    'ray tracing effect'  # 光線追蹤效果
-]
+# image_quality = [  # 圖像品質
+#     'masterpiece',  # 大師作品
+#     'best quality',  # 最高畫質
+#     'ultra high res',  # 
+#     '4K',  # 4K畫質
+#     '8K',  # 8K畫質
+#     '4K quality',  # 4K畫質
+#     '8K quality',  # 8K畫質
+#     'high resolution',  # 高解析度
+#     'super high resolution',  # 超高解析度
+#     'highres',  # 高分辨率
+#     'HDR',  # HDR
+#     'delicate quality',  # 細膩畫質
+#     'enhanced dynamic range',  # 動態範圍增強
+#     'ray tracing effect'  # 光線追蹤效果
+#     'ultra-detailed'  # 超詳細
+# ]
 
-image_style = [  # 影像風格
-    'photo realistic',  # 照片寫實風格
-    'hand-drawn style',  # 手繪風格
-    'CG', # CG
-    'artbook', # 藝術書
-    'illustration', # 插圖
-    'fantasy', # 幻想
-    'artbook', # 藝術書
-    'artbook', # 藝術書
-    'anime',  # 動漫
-    'anime coloring', # 動畫著色
-    '2D',  # 二次元
-    '3D rendering style',  # 3D渲染風
-    'impressionism',  # 印象派
-    'baroque',  # 巴洛克
-    'fantasy style',  # 夢幻風格
-    'art nouveau',  # 新藝術風格
-    'watercolor style',  # 水彩風格
-    'oil painting style',  # 油畫風格
-    'sketch style',  # 素描風格
-    'comic style',  # 漫畫風格
-    'retro style',  # 復古風格
-    'pixel art'  # 像素藝術
-]
+# local_enhancements = [  # 局部優化詞
+#     'detailed highlights',  # 細節高光
+#     'soft focus edges',  # 柔焦邊緣
+#     'ultra-fine details',  # 超精細
+#     'lighting effects',  # 光影效果
+#     'edge enhancement',  # 邊緣加強
+#     'color correction',  # 色彩校正
+#     'contrast enhancement',  # 對比度增強
+#     'delicate texture',  # 細膩質感
+#     'shadow enhancement'  # 陰影增強
+# ]
 
-local_enhancements = [  # 局部優化詞
-    'detailed highlights',  # 細節高光
-    'soft focus edges',  # 柔焦邊緣
-    'ultra-fine details',  # 超精細
-    'lighting effects',  # 光影效果
-    'edge enhancement',  # 邊緣加強
-    'color correction',  # 色彩校正
-    'contrast enhancement',  # 對比度增強
-    'delicate texture',  # 細膩質感
-    'shadow enhancement'  # 陰影增強
-]
+# image_style = [  # 影像風格
+#     'photo realistic',  # 照片寫實風格
+#     'hand-drawn style',  # 手繪風格
+#     'CG', # CG
+#     'artbook', # 藝術書
+#     'illustration', # 插圖
+#     'fantasy', # 幻想
+#     'artbook', # 藝術書
+#     'artbook', # 藝術書
+#     'anime',  # 動漫
+#     'anime coloring', # 動畫著色
+#     '2D',  # 二次元
+#     '3D rendering style',  # 3D渲染風
+#     'impressionism',  # 印象派
+#     'baroque',  # 巴洛克
+#     'fantasy style',  # 夢幻風格
+#     'art nouveau',  # 新藝術風格
+#     'watercolor style',  # 水彩風格
+#     'oil painting style',  # 油畫風格
+#     'sketch style',  # 素描風格
+#     'comic style',  # 漫畫風格
+#     'retro style',  # 復古風格
+#     'pixel art'  # 像素藝術
+# ]
 
-perspective = [  # 視角
-    'bird\'s eye view',  # 鳥瞰視角
-    'scorpion view',  # 蠍子視角
-    'top-down view',  # 俯視角
-    'low angle',  # 低視角
-    'side angle',  # 側視角
-    'front view',  # 正面視角
-    'close-up',  # 特寫
-    'face-close-up',  # 近距離特寫
-    'long shot',  # 遠距離視角
-    'zoom out',  # 鏡頭拉遠
-    'close up portrait',  # 特寫肖像
-    'dutch angle',  # 荷蘭角
-    'focused view'  # 焦點集中
-]
+# perspective = [  # 視角
+#     'bird\'s eye view',  # 鳥瞰視角
+#     'scorpion view',  # 蠍子視角
+#     'top-down view',  # 俯視角
+#     'low angle',  # 低視角
+#     'side angle',  # 側視角
+#     'front view',  # 正面視角
+#     'close-up',  # 特寫
+#     'face-close-up',  # 近距離特寫
+#     'long shot',  # 遠距離視角
+#     'zoom out',  # 鏡頭拉遠
+#     'close up portrait',  # 特寫肖像
+#     'dutch angle',  # 荷蘭角
+#     'focused view'  # 焦點集中
+# ]
 
-effects = [  # 效果
-    'blur',  # 模糊
-    'texture',  # 紋理
-    'highlights',  # 高光
-    'shadows',  # 陰影
-    'filter',  # 濾鏡
-    'vintage effect',  # 復古效果
-    'glow',  # 光暈
-    'gradient effect',  # 漸變效果
-    'distortion',  # 失真效果
-    'refraction effect',  # 折射效果
-    'noise',  # 雜訊
-    'fog effect',  # 霧化
-    'brightness adjustment',  # 亮度調整
-    'reflection effect'  # 反射效果
-]
+# composition = [  # 構圖
+#     'central composition',  # 中心構圖
+#     'diagonal composition',  # 對角構圖
+#     'golden ratio',  # 黃金分割構圖
+#     'rule of thirds',  # 三分法構圖
+#     'symmetrical composition',  # 對稱構圖
+#     'asymmetrical composition',  # 非對稱構圖
+#     'framed composition',  # 框架構圖
+#     'leading lines',  # 引導線構圖
+#     'minimal composition',  # 簡約構圖
+#     'complex composition'  # 複雜構圖
+# ]
 
-composition = [  # 構圖
-    'central composition',  # 中心構圖
-    'diagonal composition',  # 對角構圖
-    'golden ratio',  # 黃金分割構圖
-    'rule of thirds',  # 三分法構圖
-    'symmetrical composition',  # 對稱構圖
-    'asymmetrical composition',  # 非對稱構圖
-    'framed composition',  # 框架構圖
-    'leading lines',  # 引導線構圖
-    'minimal composition',  # 簡約構圖
-    'complex composition'  # 複雜構圖
-]
+# effects = [  # 效果
+#     'blur',  # 模糊
+#     'texture',  # 紋理
+#     'highlights',  # 高光
+#     'shadows',  # 陰影
+#     'filter',  # 濾鏡
+#     'vintage effect',  # 復古效果
+#     'glow',  # 光暈
+#     'gradient effect',  # 漸變效果
+#     'distortion',  # 失真效果
+#     'refraction effect',  # 折射效果
+#     'noise',  # 雜訊
+#     'fog effect',  # 霧化
+#     'brightness adjustment',  # 亮度調整
+#     'reflection effect'  # 反射效果
+# ]
+
 
 # Characters (人物類)
 age = [  # 年齡
