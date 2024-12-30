@@ -34,8 +34,8 @@ class BaseConfig:
         self.n_iter = 1  # 生成的迭代次數。
         self.steps = 20  # 採樣步驟數量，越高生成細節越多但速度越慢。
         self.cfg_scale = 7  # 引導比例，用於平衡提示語與隨機生成內容的影響。
-        self.height = 512  # 圖像高度（像素）。
-        self.width = 768  # 圖像寬度（像素）。
+        self.height = 768  # 圖像高度（像素）。
+        self.width = 512  # 圖像寬度（像素）。
         self.restore_faces = True  # 是否啟用面部修復功能。
         self.tiling = False  # 是否啟用平鋪模式（生成無縫圖像）。
         self.subseed = -1  # 子隨機種子，用於變化主隨機種子生成的內容。

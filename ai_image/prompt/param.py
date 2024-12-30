@@ -1,8 +1,8 @@
  
 from ai_image.config import ParamsConfig
 from ai_image.prompt.negative_generator import get_negatives
-from ai_image.prompt.parameter_generator import get_parameters
-from ai_image.prompt.model import get_model
+from ai_image.prompt.parameter_generator import generate_parameters
+from ai_image.prompt.model import get_model, get_random_model
 
 
 def custom_params(custom_params=None):
@@ -23,16 +23,18 @@ def adjust_params():
     隨機參數
     """
     adjust_params = ParamsConfig().to_dict()
+    print(f"API預設參數: {adjust_params}")
     
-    parameters_string = get_parameters()
+    parameters_string = generate_parameters()
+    print(f"正面提示詞: {parameters_string}")
     adjust_params["prompt"] = parameters_string
     
     negatives_string = get_negatives()
+    print(f"負面提示詞: {negatives_string}")
     adjust_params["negative_prompt"] = negatives_string
     
-    model_name = get_model()
+    model_name = get_random_model()
     adjust_params["override_settings"]["sd_model_checkpoint"] = model_name
 
-    print(f"參數內容: {adjust_params}")
 
     return adjust_params

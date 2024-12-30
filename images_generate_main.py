@@ -11,7 +11,7 @@ def generate_and_save_images():
     ImageOperations.save_images(images, generate_params, generate_time_based_filename)
 
 def main():
-    # for num in range(1, 100):
+    for _ in range(1, 100):
         generate_and_save_images()
 
 if __name__ == "__main__":
