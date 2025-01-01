@@ -1,4 +1,5 @@
 
+from ai_image.config import OUTPUT_DIR
 from ai_image.prompt.param import adjust_params
 from ai_image.save_images import ImageOperations
 from ai_image.txt_to_img import generate_images
@@ -9,9 +10,9 @@ def generate_and_save_images():
     images = generate_images(generate_params)
     
     model_name = generate_params["override_settings"]["sd_model_checkpoint"]
-    filename = generate_filename_by_model(model_name)
+    filename = generate_filename_by_model(output_dir=OUTPUT_DIR, model_name=model_name)
     
-    ImageOperations.save_images(images, generate_params, filename)
+    ImageOperations.save_images(images, generate_params, [filename])
 
 def main():
     for _ in range(1, 100):

@@ -11,6 +11,7 @@ def generate_filename_by_model(output_dir=OUTPUT_DIR, model_name="model"):
     current_time = datetime.now()
     time_string = current_time.strftime("%Y%m%d_%H%M%S_%f")
     os.makedirs(output_dir, exist_ok=True)
+    print(os.path.join(output_dir, f"{model_name}_{time_string}.png"))
     return os.path.join(output_dir, f"{model_name}_{time_string}.png")
 
 def generate_uuid4_filename(output_dir=OUTPUT_DIR, prefix="image"):

@@ -20,6 +20,6 @@ def get_random_model():
         raise Exception("No models found with '較優' in model_name")
     
     # 從篩選後的模型中隨機選擇一個
-    selected_model = random.choice(filtered_models)
+    selected_model = random.choice(models)
     return selected_model["model_name"]
        

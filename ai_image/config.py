@@ -15,7 +15,7 @@ LORA_LIST_URL = "/sdapi/v1/loras"
 GENERATE_IMAGE_URL = "http://127.0.0.1:7860/sdapi/v1/txt2img"
 
 # output
-OUTPUT_DIR = "src/test"
+OUTPUT_DIR = r"src/test"
 
 class BaseConfig:
     """Configuration for basic parameters."""

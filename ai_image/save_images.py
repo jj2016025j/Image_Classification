@@ -6,10 +6,7 @@ import json
 from PIL.PngImagePlugin import PngInfo
 import traceback
 
-from ai_image.config import OUTPUT_DIR
-
 class ImageOperations:
-    output_dir = OUTPUT_DIR
     @staticmethod
     def save_images(images, generate_params, filenames):
         """保存多個圖像，並嵌入 metadata。"""
@@ -32,7 +29,7 @@ class ImageOperations:
             image = ImageOperations.convert_to_pil_image(image_data)
             image_with_metadata = ImageOperations.add_metadata_to_image(image, params)
             image_with_metadata.save(filename, format='PNG')
-            print(f"Image saved as {filename}")
+            print(f"Image saved as {filename}\n")
         except Exception as e:
             error_message = f"Error in save_image_with_metadata: {str(e)}\n"
             error_message += traceback.format_exc()

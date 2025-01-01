@@ -23,18 +23,19 @@ def adjust_params():
     取得預設參數，生成隨機提示詞，選擇隨機模型、採樣器(Upscaler、Sampling method)
     """
     adjust_params = ParamsConfig().to_dict()
-    print(f"API預設參數: {adjust_params}")
+    # print(f"API預設參數: {adjust_params}")
     
     parameters_string = generate_parameters(mode='positive')
-    print(f"正面提示詞: {parameters_string}")
+    print(f"正面提示詞: {parameters_string}\n")
     adjust_params["prompt"] = parameters_string
     
     negatives_string = generate_parameters(mode='negative')
-    print(f"負面提示詞: {negatives_string}")
+    print(f"負面提示詞: {negatives_string}\n")
     adjust_params["negative_prompt"] = negatives_string
     
     model_name = get_random_model()
     adjust_params["override_settings"]["sd_model_checkpoint"] = model_name
+    print(f"送出參數: {adjust_params}")
 
 
     return adjust_params
