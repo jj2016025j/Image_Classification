@@ -1,4 +1,4 @@
-from classification.image_viewer import image_viewer_main
+from image_viewer import image_viewer_main
 
 def main():
     image_viewer_main()

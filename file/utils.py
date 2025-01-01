@@ -4,12 +4,20 @@ from datetime import datetime
 import os
 import random
 import string
+from ai_image.config import OUTPUT_DIR
 
-def generate_uuid4_filename(output_dir, prefix="image"):
+def generate_filename_by_model(output_dir=OUTPUT_DIR, model_name="model"):
+    """Generate a UUID4-based unique filename."""
+    current_time = datetime.now()
+    time_string = current_time.strftime("%Y%m%d_%H%M%S_%f")
+    os.makedirs(output_dir, exist_ok=True)
+    return os.path.join(output_dir, f"{model_name}_{time_string}.png")
+
+def generate_uuid4_filename(output_dir=OUTPUT_DIR, prefix="image"):
     """Generate a UUID4-based unique filename."""
     return os.path.join(output_dir, f"{prefix}_{uuid.uuid4().hex}.png")
 
-def generate_time_based_filename(output_dir, prefix="image"):
+def generate_time_based_filename(output_dir=OUTPUT_DIR, prefix="image"):
     """Generate a timestamp-based unique filename."""
     current_time = datetime.now()
     time_string = current_time.strftime("%Y%m%d_%H%M%S_%f")

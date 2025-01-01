@@ -6,56 +6,57 @@ class ImageStyle:
         self.styles = {
             'realistic': {
                 'prompts': {
-                    'photo realistic': 1,
-                    'CG': 0.8,
-                    '3D rendering style': 0.7,
-                    'artbook': 0.6
+                    'photo realistic': {'positive': 1, 'negative': 0.1},
+                    'CG': {'positive': 0.8, 'negative': 0.2},
+                    '3D rendering style': {'positive': 0.7, 'negative': 0.3},
+                    'artbook': {'positive': 0.6, 'negative': 0.4}
                 }
             },
             'artistic': {
                 'prompts': {
-                    'hand-drawn style': 1,
-                    'illustration': 0.9,
-                    'fantasy': 0.8,
-                    'art nouveau': 0.7,
-                    'watercolor style': 0.6,
-                    'oil painting style': 0.7,
-                    'sketch style': 0.5
+                    'hand-drawn style': {'positive': 1, 'negative': 0.1},
+                    'illustration': {'positive': 0.9, 'negative': 0.2},
+                    'fantasy': {'positive': 0.8, 'negative': 0.3},
+                    'art nouveau': {'positive': 0.7, 'negative': 0.4},
+                    'watercolor style': {'positive': 0.6, 'negative': 0.5},
+                    'oil painting style': {'positive': 0.7, 'negative': 0.4},
+                    'sketch style': {'positive': 0.5, 'negative': 0.6}
                 }
             },
             'anime': {
                 'prompts': {
-                    'anime': 1,
-                    'anime coloring': 0.9,
-                    '2D': 0.8,
-                    'comic style': 0.7,
-                    'pixel art': 0.6
+                    'anime': {'positive': 1, 'negative': 0.1},
+                    'anime coloring': {'positive': 0.9, 'negative': 0.2},
+                    '2D': {'positive': 0.8, 'negative': 0.3},
+                    'comic style': {'positive': 0.7, 'negative': 0.4},
+                    'pixel art': {'positive': 0.6, 'negative': 0.5}
                 }
             },
             'historical': {
                 'prompts': {
-                    'impressionism': 1,
-                    'baroque': 0.8,
-                    'retro style': 0.7
+                    'impressionism': {'positive': 1, 'negative': 0.1},
+                    'baroque': {'positive': 0.8, 'negative': 0.3},
+                    'retro style': {'positive': 0.7, 'negative': 0.4}
                 }
             }
         }
 
-    def get_prompts(self, style_type, count=20):
+    def get_prompts(self, style_type, count=20, mode='positive'):
         """
         根據指定風格類型生成相關提示詞。
-        :param style_type: 風格類型（如 'realistic', 'artistic' 等）
-        :param count: 返回提示詞的數量
-        :return: 隨機選擇的提示詞列表
+        :param style_type: 風格類型（如 'realistic', 'artistic' 等）。
+        :param count: 返回提示詞的數量。
+        :param mode: 選擇模式，可為 'positive' 或 'negative'。
+        :return: 隨機選擇的提示詞列表。
         """
         if style_type not in self.styles:
             raise ValueError(f"Style type '{style_type}' does not exist. Available types: {list(self.styles.keys())}")
 
-        # 提取風格類型的提示詞及權重
+        # 提取風格類型的提示詞及對應權重
         prompts_with_weights = self.styles[style_type]['prompts']
 
         # 構建候選池
-        candidates = list(prompts_with_weights.items())
+        candidates = [(prompt, weights[mode]) for prompt, weights in prompts_with_weights.items()]
 
         # 必選提示詞（權重為 1）
         mandatory = [prompt for prompt, weight in candidates if weight == 1]
@@ -86,11 +87,11 @@ class ImageStyle:
 
         return selected[:count]
 
-    def get_image_style(self):
-        realistic = self.get_prompts('realistic')  # 獲取寫實風格
-        artistic = self.get_prompts('artistic')    # 獲取藝術風格
-        anime = self.get_prompts('anime')          # 獲取動畫風格
-        historical = self.get_prompts('historical')  # 獲取歷史風格
+    def get_image_style(self, mode='positive'):
+        realistic = self.get_prompts('realistic', mode=mode)  # 獲取寫實風格
+        artistic = self.get_prompts('artistic', mode=mode)    # 獲取藝術風格
+        anime = self.get_prompts('anime', mode=mode)          # 獲取動畫風格
+        historical = self.get_prompts('historical', mode=mode)  # 獲取歷史風格
         
         return realistic + artistic + anime + historical
         

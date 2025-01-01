@@ -20,8 +20,8 @@ OUTPUT_DIR = "src/test"
 class BaseConfig:
     """Configuration for basic parameters."""
     def __init__(self):
-        self.prompt = "((masterpiece)), (best quality), beautiful, photography, 8K, HDR, highres, absurdres:1.2, ultra-detailed, (vibrant color:1.2), ambient light, perfect lighting, textured skin, extremely detailed face, beautiful detailed face, beautiful detailed eyes, beautiful detailed pupils, detailed background, 1girl, cute, (Kpop idol), rebecca \(cyberpunk\), solo, colored skin, white skin, (green hair:0.7), multicolor hair, very long hair, small breasts, red pupils,multicolor pupils ,cowboy shot, tilted down, solo, female, nude, naked, thighs, breasts, multicolor, thong, navel, thicc, <lora:rebeccaCyberpunk_v10:0.8>, (family friendly:0.5)emotions" # 正面提示，用於引導生成圖像的主題和細節。
-        self.negative_prompt = "(worst quality:2), (low quality:2), (normal quality:2), ((monochrome)), ((grayscale)),paintings, sketches, normal quality, lowres, lens flare, text, artist name, username, (bad anatomy), nsfw, black bra"  # 負面提示，用於避免不希望出現的內容。
+        self.prompt = "((masterpiece)), (best quality), beautiful, photography, 8K, HDR, highres, absurdres:1.2, ultra-detailed, (vibrant color:1.2), ambient light, perfect lighting, textured skin, extremely detailed face, beautiful detailed face, beautiful detailed eyes, beautiful detailed pupils, detailed background, 1girl, cute, (Kpop idol), solo, ,cowboy shot, tilted down, female, nude, naked, thighs, breasts, multicolor, thong, navel, thicc" # 正面提示，用於引導生成圖像的主題和細節。
+        self.negative_prompt = "(worst quality:2), (low quality:2), (normal quality:2), ((monochrome)), ((grayscale)),paintings, sketches, normal quality, lowres, lens flare, text, artist name, username, (bad anatomy)"  # 負面提示，用於避免不希望出現的內容。
         self.styles = []  # 圖像風格列表，應用預定義的風格。
         self.seed = -1  # 隨機種子，-1 表示隨機生成。
         self.seed_resize_from_h = -1  # 隨機種子生成時的高度調整（像素），-1 表示禁用。

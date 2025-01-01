@@ -11,25 +11,22 @@ from ai_image.config import OUTPUT_DIR
 class ImageOperations:
     output_dir = OUTPUT_DIR
     @staticmethod
-    def save_images(images, generate_params, filename_generator):
-        """Save multiple images with metadata."""
-        if not images:
-            print("No images to save.")
+    def save_images(images, generate_params, filenames):
+        """保存多個圖像，並嵌入 metadata。"""
+        if not images or not filenames:
+            print("No images or filenames to save.")
             return
 
-        os.makedirs(OUTPUT_DIR, exist_ok=True) 
-
-        for img in images:
+        for img, filename in zip(images, filenames):
             try:
-                image_filename = filename_generator(ImageOperations.output_dir)
-                ImageOperations.save_image_with_metadata(img, generate_params, image_filename)
+                ImageOperations.save_image_with_metadata(img, generate_params, filename)
             except Exception as e:
-                print(f"Error saving image: {e}")         
+                print(f"Error saving image: {e}")     
 
     @staticmethod
     def save_image_with_metadata(image_data, params, filename):
         """
-        Save an image and embed generation parameters as metadata.
+        保存圖像，並嵌入生成參數作為 metadata。
         """
         try:
             image = ImageOperations.convert_to_pil_image(image_data)

@@ -1,8 +1,20 @@
 # 調用並打印
+from ai_image.prompt.character_prompts import CharacterPrompts
+from ai_image.prompt.clothing_prompts import ClothingPrompts
 from ai_image.prompt.parameter_generator import generate_parameters
-
-def main():
-    generate_parameters()
+from ai_image.prompt.pose_prompts import PosePrompts
 
 if __name__ == '__main__':
-    main()
+    character_prompts = CharacterPrompts()
+    print(f"角色基本設定: {character_prompts.generate_prompts()}\n")
+    
+    pose_prompts = PosePrompts()
+    print(f"姿勢動作: {pose_prompts.generate_prompts()}\n")
+    
+    clothing_prompts = ClothingPrompts()
+    print(f"外觀裝飾: {clothing_prompts.generate_prompts()}\n")
+    
+    print(f"所有 Prompt: {generate_parameters()}\n")
+
+    
+        

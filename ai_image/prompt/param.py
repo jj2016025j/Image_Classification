@@ -2,7 +2,7 @@
 from ai_image.config import ParamsConfig
 from ai_image.prompt.negative_generator import get_negatives
 from ai_image.prompt.parameter_generator import generate_parameters
-from ai_image.prompt.model import get_model, get_random_model
+from ai_image.prompt.model import get_random_model
 
 
 def custom_params(custom_params=None):
@@ -20,7 +20,7 @@ def custom_params(custom_params=None):
         
 def adjust_params():
     """
-    隨機參數
+    取得預設參數，生成隨機提示詞，選擇隨機模型、採樣器(Upscaler、Sampling method)
     """
     adjust_params = ParamsConfig().to_dict()
     print(f"API預設參數: {adjust_params}")
