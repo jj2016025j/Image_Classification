@@ -18,8 +18,8 @@ class LightingPrompts:
             'lightning': {'positive': 0.7, 'negative': 0.3},
         }
         
-    def generate_prompts(self, count=1):
-        return weighted_sample(self.prompts, count)
+    def generate_prompts(self, count=1, mode='positive'):
+        return weighted_sample(self.prompts, count, mode=mode)
 
 class TonePrompts:
     def __init__(self):
@@ -30,8 +30,8 @@ class TonePrompts:
             'Monochrome': {'positive': 0.7, 'negative': 0.3},
         }
 
-    def generate_prompts(self, count=1):
-        return weighted_sample(self.prompts, count)
+    def generate_prompts(self, count=1, mode='positive'):
+        return weighted_sample(self.prompts, count, mode=mode)
 
 class FilterPrompts:
     def __init__(self):
@@ -42,8 +42,8 @@ class FilterPrompts:
             'Black and White': {'positive': 0.8, 'negative': 0.3},
         }
 
-    def generate_prompts(self, count=1):
-        return weighted_sample(self.prompts, count)
+    def generate_prompts(self, count=1, mode='positive'):
+        return weighted_sample(self.prompts, count, mode=mode)
 
 # 測試程式
 if __name__ == "__main__":
@@ -53,9 +53,9 @@ if __name__ == "__main__":
     filter_prompts = FilterPrompts()
 
     # 生成提示詞
-    lighting_prompt = lighting.generate_prompts(count=1)
-    tone_prompt = tone.generate_prompts(count=1)
-    filter_prompt = filter_prompts.generate_prompts(count=1)
+    lighting_prompt = lighting.generate_prompts(count=1, mode='positive')
+    tone_prompt = tone.generate_prompts(count=1, mode='positive')
+    filter_prompt = filter_prompts.generate_prompts(count=1, mode='positive')
 
     print("光影提示詞:", lighting_prompt)
     print("色調提示詞:", tone_prompt)

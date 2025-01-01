@@ -8,51 +8,52 @@ from ai_image.prompt.characters_prompts import CharacterPrompts
 from ai_image.utils import flatten_prompts
 
 # 隨機選擇圖片品質和效果
-def generate_base_prompt():
+def generate_base_prompt(mode='positive',):
     return [
-        ImageSettings().generate_combined_list(mode='positive', count=20),
-        ImageStyle().get_image_style(),
-        PerspectivePrompts().generate_prompts(count=1),
-        CompositionPrompts().generate_prompts(count=1),
-        EffectsPrompts().generate_prompts(count=3),
-        LightingPrompts().generate_prompts(count=1),
-        TonePrompts().generate_prompts(count=1),
-        FilterPrompts().generate_prompts(count=3)
+        ImageSettings().generate_combined_list(mode=mode, count=20),
+        ImageStyle().get_image_style(mode=mode, ),
+        PerspectivePrompts().generate_prompts(mode=mode, count=1),
+        CompositionPrompts().generate_prompts(mode=mode, count=1),
+        EffectsPrompts().generate_prompts(mode=mode, count=3),
+        LightingPrompts().generate_prompts(mode=mode, count=1),
+        TonePrompts().generate_prompts(mode=mode, count=1),
+        FilterPrompts().generate_prompts(mode=mode, count=3)
     ]
 
-def generate_character_prompts():
-     return CharacterPrompts().generate_prompts(),
+def generate_character_prompts(mode='positive',):
+     return CharacterPrompts().generate_prompts(mode=mode,),
     
    
 # 隨機選擇環境
-def generate_random_environment():
+def generate_random_environment(mode='positive',):
     return [
-        Background().generate_background(theme='realistic'),
-        Season().generate_season(),
-        Atmosphere().generate_atmosphere(),
+        Background().generate_background(mode=mode, theme='realistic'),
+        Season().generate_season(mode=mode, ),
+        Atmosphere().generate_atmosphere(mode=mode, ),
     ]
 
 # 生成完整的隨機提示詞
-def generate_parameters():
+def generate_parameters(mode='positive', ):
     prompt = []
-    print(f"基本優化:{generate_base_prompt()}\n")
-    prompt += generate_base_prompt()
+    print(f"基本優化:{generate_base_prompt(mode=mode, )}\n")
+    prompt += generate_base_prompt(mode=mode, )
     
-    print(f"人物參數:{generate_character_prompts()}\n")
-    prompt += generate_character_prompts()
+    print(f"人物參數:{generate_character_prompts(mode=mode, )}\n")
+    prompt += generate_character_prompts(mode=mode, )
     
-    print(f"背景環境參數:{generate_random_environment()}\n")
-    prompt += generate_random_environment()
+    print(f"背景環境參數:{generate_random_environment(mode=mode, )}\n")
+    prompt += generate_random_environment(mode=mode, )
     
-    parameters_string = flatten_prompts(prompt)
-    parameters_string = ', '.join(map(str, parameters_string))
+    flat_prompt = flatten_prompts(prompt)
+    parameters_string = ', '.join(map(str, flat_prompt))
     
     return parameters_string
 
 
 # 調用並打印
 def main():
-    generate_parameters()
+    generate_parameters(mode='positive',)
+    generate_parameters(mode='negative',)
 
 if __name__ == '__main__':
     main()

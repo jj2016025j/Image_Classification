@@ -25,11 +25,11 @@ def adjust_params():
     adjust_params = ParamsConfig().to_dict()
     print(f"API預設參數: {adjust_params}")
     
-    parameters_string = generate_parameters()
+    parameters_string = generate_parameters(mode='positive')
     print(f"正面提示詞: {parameters_string}")
     adjust_params["prompt"] = parameters_string
     
-    negatives_string = get_negatives()
+    negatives_string = generate_parameters(mode='negative')
     print(f"負面提示詞: {negatives_string}")
     adjust_params["negative_prompt"] = negatives_string
     

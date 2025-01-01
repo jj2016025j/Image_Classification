@@ -20,8 +20,8 @@ class PerspectivePrompts:
             'focused view': {'positive': 0.8, 'negative': 0.2}
         }
 
-    def generate_prompts(self, count=1):
-        return weighted_sample(self.prompts, count)
+    def generate_prompts(self, count=1, mode='positive'):
+        return weighted_sample(self.prompts, count, mode=mode)
       
 class CompositionPrompts:
     def __init__(self):
@@ -41,8 +41,8 @@ class CompositionPrompts:
             'complex composition': {'positive': 0.4, 'negative': 0.6}
         }
 
-    def generate_prompts(self, count=1):
-        return weighted_sample(self.prompts, count)
+    def generate_prompts(self, count=1, mode='positive'):
+        return weighted_sample(self.prompts, count, mode=mode)
       
 class EffectsPrompts:
     def __init__(self):
@@ -64,20 +64,20 @@ class EffectsPrompts:
             'reflection effect': {'positive': 0.7, 'negative': 0.3}
         }
 
-    def generate_prompts(self, count=3):
-        return weighted_sample(self.prompts, count)
+    def generate_prompts(self, count=3, mode='positive'):
+        return weighted_sample(self.prompts, count, mode=mode)
       
             
 # 測試程式
 if __name__ == "__main__":
     perspective = PerspectivePrompts()
-    composition = CompositionPrompts()
-    effects = EffectsPrompts()
-
-    perspective_prompt = perspective.generate_prompts(count=1)
-    composition_prompt = composition.generate_prompts(count=1)
-    effects_prompt = effects.generate_prompts(count=3)
-
+    perspective_prompt = perspective.generate_prompts(count=1, mode='positive')
     print("視角提示詞:", perspective_prompt)
+    
+    composition = CompositionPrompts()
+    composition_prompt = composition.generate_prompts(count=1, mode='positive')
     print("構圖提示詞:", composition_prompt)
+
+    effects = EffectsPrompts()
+    effects_prompt = effects.generate_prompts(count=3, mode='positive')
     print("效果提示詞:", effects_prompt)

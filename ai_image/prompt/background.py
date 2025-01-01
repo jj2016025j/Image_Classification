@@ -28,7 +28,7 @@ class Background:
             'church': {'positive': 0.5, 'negative': 0.5}
         }
         
-    def generate_background(self, count=1, theme='realistic'):
+    def generate_background(self, count=1, mode='positive', theme='realistic'):
         """
         根據主題選擇室內或室外背景提示詞。
         :param count: 選擇的項目數量。
@@ -39,9 +39,9 @@ class Background:
             # 隨機選擇室內或室外，然後從中抽取提示詞
             choice = random.choice(['indoor', 'outdoor'])
             if choice == 'indoor':
-                return weighted_sample(self.indoor, count)
+                return weighted_sample(self.indoor, count, mode=mode)
             else:
-                return weighted_sample(self.outdoor, count)
+                return weighted_sample(self.outdoor, count, mode=mode)
         else:
             raise ValueError("Unsupported theme")
 
@@ -58,8 +58,8 @@ class Season:
             'typhoon season': {'positive': 0.3, 'negative': 0.7}
         }
 
-    def generate_season(self):
-        return weighted_sample(self.seasons, count=1)
+    def generate_season(self, mode='positive'):
+        return weighted_sample(self.seasons, count=1, mode=mode)
 
 class Atmosphere:
     def __init__(self):
@@ -76,8 +76,8 @@ class Atmosphere:
             'classical': {'positive': 0.8, 'negative': 0.2}
         }
 
-    def generate_atmosphere(self):
-        return weighted_sample(self.atmosphere, count=1)
+    def generate_atmosphere(self, mode='positive'):
+        return weighted_sample(self.atmosphere, count=1, mode=mode)
 
 class EnvironmentGenerator:
     def __init__(self):
