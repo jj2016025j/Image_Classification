@@ -17,6 +17,8 @@ class Character:
     gender = {
         'male': {'positive': 0.2, 'negative': 0.8},  # 男性
         'female': {'positive': 0.9, 'negative': 0.1},  # 女性
+        '1girl': {'positive': 0.9, 'negative': 0.1},  # 女性
+        'girl': {'positive': 0.9, 'negative': 0.1},  # 女性
         'non-binary': {'positive': 0.3, 'negative': 0.7},  # 非二元
         'androgynous': {'positive': 0.2, 'negative': 0.8},  # 雌雄同體
         'unspecified': {'positive': 0.1, 'negative': 0.9},  # 未指定
@@ -25,41 +27,49 @@ class Character:
 
     # 年齡屬性
     age = {
-        'child': {'positive': 0.3, 'negative': 0.7},  # 小孩
-        'teen': {'positive': 0.5, 'negative': 0.5},  # 青少年
-        'young adult': {'positive': 0.8, 'negative': 0.2},  # 年輕人
-        'adult': {'positive': 0.7, 'negative': 0.3},  # 成年人
+        'child': {'positive': 0.3, 'negative': 0.2},  # 小孩
+        'teen': {'positive': 0.5, 'negative': 0.01},  # 青少年
+        'young adult': {'positive': 0.8, 'negative': 0.01},  # 年輕人
+        '21 years old': {'positive': 0.8, 'negative': 0.01},  
+        'adult': {'positive': 0.7, 'negative': 0.01},  # 成年人
         'mature': {'positive': 0.6, 'negative': 0.4},  # 成熟
-        'middle-aged': {'positive': 0.4, 'negative': 0.6},  # 中年
-        'elderly': {'positive': 0.3, 'negative': 0.7},  # 老年
-        'baby': {'positive': 0.2, 'negative': 0.8},  # 嬰兒
-        'all ages': {'positive': 0.1, 'negative': 0.9},  # 所有年齡
+        'middle-aged': {'positive': 0.1, 'negative': 0.9},  # 中年
+        'elderly': {'positive': 0, 'negative': 1},  # 老年
+        'baby': {'positive': 0, 'negative': 1},  # 嬰兒
+        'all ages': {'positive': 0, 'negative': 1},  # 所有年齡
     }
 
     # 膚色屬性
     skin_tone = {
-        'fair': {'positive': 0.8, 'negative': 0.2},  # 白皙
+        'fair': {'positive': 0.8, 'negative': 0},  # 白皙
         'dark': {'positive': 0.7, 'negative': 0.3},  # 深色
-        'tan': {'positive': 0.6, 'negative': 0.4},  # 古銅色
-        'yellow': {'positive': 0.7, 'negative': 0.3},  # 黃色
-        'light': {'positive': 0.6, 'negative': 0.4},  # 淺色
+        'tan': {'positive': 0.6, 'negative': 0},  # 古銅色
+        # 'yellow': {'positive': 0, 'negative': 1},  # 黃色
+        'light': {'positive': 0.6, 'negative': 0},  # 淺色
         'pale': {'positive': 0.5, 'negative': 0.5},  # 蒼白
-        'bronze': {'positive': 0.4, 'negative': 0.6},  # 銅色
+        'bronze': {'positive': 0, 'negative': 1},  # 銅色
         'black': {'positive': 0.3, 'negative': 0.7},  # 黑色
-        'grey': {'positive': 0.2, 'negative': 0.8}  # 灰色
+        'grey': {'positive': 0, 'negative': 0.8}  # 灰色
     }
 
     # 體型屬性
     body_type = {
-        'slim': {'positive': 0.8, 'negative': 0.2},  # 苗條
-        'muscular': {'positive': 0.7, 'negative': 0.3},  # 肌肉發達
-        'curvy': {'positive': 0.6, 'negative': 0.4},  # 曲線美
-        'petite': {'positive': 0.5, 'negative': 0.5},  # 嬌小
-        'tall': {'positive': 0.7, 'negative': 0.3},  # 高挑
-        'short': {'positive': 0.5, 'negative': 0.5},  # 矮小
-        'medium build': {'positive': 0.6, 'negative': 0.4},  # 中等身材
-        'giant': {'positive': 0.4, 'negative': 0.6},  # 巨型
-        'pregnant': {'positive': 0.2, 'negative': 0.8}  # 懷孕
+        'slim': {'positive': 0.8, 'negative': 0},  # 苗條
+        'muscular': {'positive': 0.5, 'negative': 0.5},  # 肌肉發達
+        'curvy': {'positive': 0.8, 'negative': 0},  # 曲線美
+        'petite': {'positive': 0.2, 'negative': 0.2},  # 嬌小
+        'tall': {'positive': 0.2, 'negative': 0.2},  # 高挑
+        'short': {'positive': 0.2, 'negative': 0.2},  # 矮小
+        'medium build': {'positive': 0.2, 'negative': 0.2},  # 中等身材
+        'giant': {'positive': 0.01, 'negative': 0.01},  # 巨型
+        'pregnant': {'positive': 0.2, 'negative': 0.8},  # 懷孕
+        'fat': {'positive': 0, 'negative': 1},  # 肥
+        'ugly': {'positive': 0, 'negative': 1},  
+        'pretty face': {'positive': 1, 'negative': 0},  
+        'sexy woman': {'positive': 1, 'negative': 0},  
+        'big breasts': {'positive': 1, 'negative': 0},  
+        'big breasts': {'positive': 1, 'negative': 0},  
+        'small breasts': {'positive': 1, 'negative': 0},  
     }
 
     # 五官屬性
@@ -125,15 +135,16 @@ class Character:
             'extra long': {'positive': 0.3, 'negative': 0.7},  # 超長髮
         },
         'color': {
-            'black': {'positive': 0.7, 'negative': 0.3},  # 黑色
-            'gold': {'positive': 0.6, 'negative': 0.4},  # 金色
-            'red': {'positive': 0.5, 'negative': 0.5},  # 紅色
-            'white': {'positive': 0.4, 'negative': 0.6},  # 白色
-            'purple': {'positive': 0.3, 'negative': 0.7},  # 紫色
-            'blue': {'positive': 0.2, 'negative': 0.8},  # 藍色
-            'green': {'positive': 0.1, 'negative': 0.9},  # 綠色
-            'silver': {'positive': 0.2, 'negative': 0.8},  # 銀色
-            'brown': {'positive': 0.6, 'negative': 0.4},  # 棕色
+            'pink': {'positive': 0.7, 'negative': 0},  # 黑色
+            'black': {'positive': 0.7, 'negative': 0},  # 黑色
+            'gold': {'positive': 0.1, 'negative': 0},  # 金色
+            'red': {'positive': 0.1, 'negative': 0},  # 紅色
+            'white': {'positive': 0.4, 'negative': 0},  # 白色
+            'purple': {'positive': 0.1, 'negative': 0},  # 紫色
+            'blue': {'positive': 0.1, 'negative': 0},  # 藍色
+            'green': {'positive': 0.1, 'negative': 0},  # 綠色
+            'silver': {'positive': 0.1, 'negative': 0},  # 銀色
+            'brown': {'positive': 0.6, 'negative': 0},  # 棕色
         },
         'bangs': {
             'middle part': {'positive': 0.5, 'negative': 0.5},  # 中分瀏海
@@ -159,18 +170,30 @@ class Character:
     # 身體細節屬性
     body_details = {
         'chest': {
-            'flat': {'positive': 0.5, 'negative': 0.5},  # 平胸
-            'full': {'positive': 0.6, 'negative': 0.4},  # 豐滿
-            'small': {'positive': 0.5, 'negative': 0.5},  # 小胸
-            'large': {'positive': 0.4, 'negative': 0.6},  # 大胸
-            'average': {'positive': 0.7, 'negative': 0.3},  # 普通胸
+            'flat': {'positive': 0.5, 'negative': 0},  # 平胸
+            'full': {'positive': 0.6, 'negative': 0},  # 豐滿
+            'small': {'positive': 0.5, 'negative': 0},  # 小胸
+            'large': {'positive': 0.4, 'negative': 0},  # 大胸
+            'average': {'positive': 0.7, 'negative': 0},  # 普通胸
+        },
+        'breasts': {
+            'flat': {'positive': 0.5, 'negative': 0},  # 平胸
+            'full': {'positive': 0.6, 'negative': 0},  # 豐滿
+            'small': {'positive': 0.5, 'negative': 0},  # 小胸
+            'medium': {'positive': 0.5, 'negative': 0},  # 普通胸
+            'large': {'positive': 0.4, 'negative': 0.1},  # 大胸
+            'average': {'positive': 0.7, 'negative': 0},  # 普通胸
+            'huge': {'positive': 0.7, 'negative': 0.1},  
+            'heavy': {'positive': 0.7, 'negative': 0.2},  
+            'exposed ': {'positive': 0.7, 'negative': 0.1}, # 外漏胸部
+            'bigger than half her torso': {'positive': 0.7, 'negative': 0.1},  # 普通胸
         },
         'waist': {
-            'slim': {'positive': 0.6, 'negative': 0.4},  # 細腰
-            'muscular': {'positive': 0.5, 'negative': 0.5},  # 健壯腰部
-            'thick': {'positive': 0.4, 'negative': 0.6},  # 粗腰
-            'petite': {'positive': 0.3, 'negative': 0.7},  # 小腰
-            'no waist': {'positive': 0.2, 'negative': 0.8},  # 無腰
+            'slim': {'positive': 1, 'negative': 0},  # 細腰
+            'muscular': {'positive': 1, 'negative': 0},  # 健壯腰部
+            'thick': {'positive': 0, 'negative': 1},  # 粗腰
+            'petite': {'positive': 0.8, 'negative': 0},  # 小腰
+            'no waist': {'positive': 0, 'negative': 1},  # 無腰
         },
         'back': {
             'smooth': {'positive': 0.5, 'negative': 0.5},  # 光滑背部
@@ -180,17 +203,17 @@ class Character:
         },
         'butt': {
             'round': {'positive': 0.6, 'negative': 0.4},  # 圓臀
-            'flat': {'positive': 0.5, 'negative': 0.5},  # 扁臀
+            'flat': {'positive': 0, 'negative': 0.5},  # 扁臀
             'full': {'positive': 0.4, 'negative': 0.6},  # 豐滿臀
             'small': {'positive': 0.3, 'negative': 0.7},  # 小臀
             'large': {'positive': 0.2, 'negative': 0.8},  # 大臀
         },
         'legs': {
             'long': {'positive': 0.5, 'negative': 0.5},  # 長腿
-            'muscular': {'positive': 0.4, 'negative': 0.6},  # 肌肉腿
+            'muscular': {'positive': 0.2, 'negative': 0.8},  # 肌肉腿
             'slender': {'positive': 0.6, 'negative': 0.4},  # 修長腿
-            'thick': {'positive': 0.3, 'negative': 0.7},  # 粗腿
-            'short': {'positive': 0.2, 'negative': 0.8},  # 短腿
+            'thick': {'positive': 0, 'negative': 1},  # 粗腿
+            'short': {'positive': 0, 'negative': 1},  # 短腿
         },
         'feet': {
             'barefoot': {'positive': 0.4, 'negative': 0.6},  # 赤腳

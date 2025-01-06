@@ -2,6 +2,8 @@
 
 import random
 
+from ai_image.prompt.data.image_quality_params import IMAGE_QUALITY_OPTIONS, LOCAL_ENHANCEMENTS_OPTIONS, RESOLUTION_OPTIONS
+
 class WeightedOptions:
     def __init__(self, options):
         """
@@ -47,51 +49,13 @@ class WeightedOptions:
 class ImageSettings:
     def __init__(self):
         # 圖像品質的權重配置
-        self.image_quality = WeightedOptions({
-            'masterpiece': {'positive': 1, 'negative': 0},  # 大師級作品
-            'best quality': {'positive': 1, 'negative': 0},  # 最佳畫質
-            'ultra high res': {'positive': 1, 'negative': 0},  # 超高解析度
-            '4K': {'positive': 1, 'negative': 0},  # 4K畫質
-            '8K': {'positive': 1, 'negative': 0},  # 8K畫質
-            '4K quality': {'positive': 0.7, 'negative': 0},  # 4K質量
-            '8K quality': {'positive': 0.7, 'negative': 0},  # 8K質量
-            'high resolution': {'positive': 1, 'negative': 0},  # 高解析度
-            'super high resolution': {'positive': 1, 'negative': 0},  # 超高解析度
-            'highres': {'positive': 1, 'negative': 0},  # 高分辨率
-            'HDR': {'positive': 1, 'negative': 0},  # 高動態範圍
-            'delicate quality': {'positive': 1, 'negative': 0},  # 精緻質量
-            'enhanced dynamic range': {'positive': 1, 'negative': 0},  # 增強動態範圍
-            'ray tracing effect': {'positive': 1, 'negative': 0},  # 光線追蹤效果
-            'ultra-detailed': {'positive': 1, 'negative': 0},  # 超詳細
-            'score_9': {'positive': 1, 'negative': 0},  # 分數9
-            'score_8_up': {'positive': 1, 'negative': 0},  # 分數8及以上
-            'score_7_up': {'positive': 1, 'negative': 0},  # 分數7及以上
-        })
+        self.image_quality = WeightedOptions(IMAGE_QUALITY_OPTIONS)
 
         # 解析度的權重配置
-        self.resolution = WeightedOptions({
-            'high resolution': {'positive': 1, 'negative': 0},  # 高解析度
-            'super high resolution': {'positive': 1, 'negative': 0},  # 超高解析度
-            'highres': {'positive': 1, 'negative': 0},  # 高分辨率
-            'HDR': {'positive': 1, 'negative': 0},  # 高動態範圍
-            '1080p': {'positive': 1, 'negative': 0},  # 1080p解析度
-            '4K': {'positive': 1, 'negative': 0},  # 4K解析度
-            '8K': {'positive': 1, 'negative': 0},  # 8K解析度
-            'Custom': {'positive': 0.8, 'negative': 0},  # 自定義解析度
-        })
+        self.resolution = WeightedOptions(RESOLUTION_OPTIONS)
 
         # 局部優化的權重配置
-        self.local_enhancements = WeightedOptions({
-            'detailed highlights': {'positive': 1, 'negative': 0},  # 細節高光
-            'soft focus edges': {'positive': 0.9, 'negative': 0},  # 柔焦邊緣
-            'ultra-fine details': {'positive': 0.8, 'negative': 0},  # 超精細細節
-            'lighting effects': {'positive': 1, 'negative': 0},  # 光影效果
-            'edge enhancement': {'positive': 0.7, 'negative': 0},  # 邊緣增強
-            'color correction': {'positive': 1, 'negative': 0},  # 色彩校正
-            'contrast enhancement': {'positive': 1, 'negative': 0},  # 對比度增強
-            'delicate texture': {'positive': 1, 'negative': 0},  # 細膩質感
-            'shadow enhancement': {'positive': 0.9, 'negative': 0},  # 陰影增強
-        })
+        self.local_enhancements = WeightedOptions(LOCAL_ENHANCEMENTS_OPTIONS)
 
     def generate_combined_list(self, mode='positive', count=30):
         """

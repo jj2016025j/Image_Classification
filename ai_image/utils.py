@@ -35,6 +35,11 @@ def weighted_sample(option_dict, count=1, mode='positive'):
 
     keys = list(option_dict.keys())
     weights = [option_dict[key][mode] for key in keys]  # 根據模式選擇對應權重
+
+    # 如果所有權重都是 0，返回空列表
+    if all(weight == 0 for weight in weights):
+        return ['']
+    
     selected_items = []
 
     while len(selected_items) < min(count, len(keys)):

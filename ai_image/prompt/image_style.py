@@ -1,44 +1,15 @@
 import random
 
+from ai_image.prompt.data.style_params import ANIME_PROMPTS, ARTISTIC_PROMPTS, HISTORICAL_PROMPTS, REALISTIC_PROMPTS
+
 class ImageStyle:
     def __init__(self):
         # 風格類型及提示詞配置
         self.styles = {
-            'realistic': {
-                'prompts': {
-                    'photo realistic': {'positive': 1, 'negative': 0.1},
-                    'CG': {'positive': 0.8, 'negative': 0.2},
-                    '3D rendering style': {'positive': 0.7, 'negative': 0.3},
-                    'artbook': {'positive': 0.6, 'negative': 0.4}
-                }
-            },
-            'artistic': {
-                'prompts': {
-                    'hand-drawn style': {'positive': 1, 'negative': 0.1},
-                    'illustration': {'positive': 0.9, 'negative': 0.2},
-                    'fantasy': {'positive': 0.8, 'negative': 0.3},
-                    'art nouveau': {'positive': 0.7, 'negative': 0.4},
-                    'watercolor style': {'positive': 0.6, 'negative': 0.5},
-                    'oil painting style': {'positive': 0.7, 'negative': 0.4},
-                    'sketch style': {'positive': 0.5, 'negative': 0.6}
-                }
-            },
-            'anime': {
-                'prompts': {
-                    'anime': {'positive': 1, 'negative': 0.1},
-                    'anime coloring': {'positive': 0.9, 'negative': 0.2},
-                    '2D': {'positive': 0.8, 'negative': 0.3},
-                    'comic style': {'positive': 0.7, 'negative': 0.4},
-                    'pixel art': {'positive': 0.6, 'negative': 0.5}
-                }
-            },
-            'historical': {
-                'prompts': {
-                    'impressionism': {'positive': 1, 'negative': 0.1},
-                    'baroque': {'positive': 0.8, 'negative': 0.3},
-                    'retro style': {'positive': 0.7, 'negative': 0.4}
-                }
-            }
+            'realistic': {'prompts': REALISTIC_PROMPTS},
+            'artistic': {'prompts': ARTISTIC_PROMPTS},
+            'anime': {'prompts': ANIME_PROMPTS},
+            'historical': {'prompts': HISTORICAL_PROMPTS}
         }
 
     def get_prompts(self, style_type, count=20, mode='positive'):

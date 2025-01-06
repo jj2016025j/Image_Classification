@@ -1,6 +1,5 @@
  
 from ai_image.config import ParamsConfig
-from ai_image.prompt.negative_generator import get_negatives
 from ai_image.prompt.parameter_generator import generate_parameters
 from ai_image.prompt.model import get_random_model
 
@@ -35,7 +34,7 @@ def adjust_params():
     
     model_name = get_random_model()
     adjust_params["override_settings"]["sd_model_checkpoint"] = model_name
-    print(f"送出參數: {adjust_params}")
+    # print(f"送出參數: {adjust_params}")
 
 
     return adjust_params

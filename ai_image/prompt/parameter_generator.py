@@ -11,7 +11,7 @@ from ai_image.utils import flatten_prompts
 def generate_base_prompt(mode='positive',):
     return [
         ImageSettings().generate_combined_list(mode=mode, count=20),
-        ImageStyle().get_image_style(mode=mode, ),
+        ImageStyle().get_image_style(mode=mode, count=1),
         PerspectivePrompts().generate_prompts(mode=mode, count=1),
         CompositionPrompts().generate_prompts(mode=mode, count=1),
         EffectsPrompts().generate_prompts(mode=mode, count=3),
@@ -35,13 +35,13 @@ def generate_random_environment(mode='positive',):
 # 生成完整的隨機提示詞
 def generate_parameters(mode='positive', ):
     prompt = []
-    # print(f"基本優化:{generate_base_prompt(mode=mode, )}\n")
+    print(f"基本優化:{generate_base_prompt(mode=mode, )}\n")
     prompt += generate_base_prompt(mode=mode, )
     
-    # print(f"人物參數:{generate_character_prompts(mode=mode, )}\n")
+    print(f"人物參數:{generate_character_prompts(mode=mode, )}\n")
     prompt += generate_character_prompts(mode=mode, )
     
-    # print(f"背景環境參數:{generate_random_environment(mode=mode, )}\n")
+    print(f"背景環境參數:{generate_random_environment(mode=mode, )}\n")
     prompt += generate_random_environment(mode=mode, )
     
     flat_prompt = flatten_prompts(prompt)
