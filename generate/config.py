@@ -1,0 +1,16 @@
+import os
+
+# 設定預設的輸出目錄
+OUTPUT_DIR = os.getenv("OUTPUT_DIR", "test_output")
+
+# 影片、圖片大小範圍
+IMAGE_MIN_SIZE = (100, 100)
+IMAGE_MAX_SIZE = (5000, 5000)
+VIDEO_WIDTH = 640
+VIDEO_HEIGHT = 480
+VIDEO_FPS = 30
+VIDEO_DURATION = 5
+
+# 音頻
+AUDIO_FREQUENCY = 440
+AUDIO_DURATION = 1000  # 毫秒
